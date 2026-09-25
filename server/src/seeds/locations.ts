@@ -5,6 +5,7 @@ import { connectDB, disconnectDB, db } from "../config/db.js";
 import { locations } from "../db/schema.js";
 import logger from "../config/logger.js";
 import { externalUrls } from "../config/externalUrls.js";
+import { pathToFileURL } from "node:url";
 
 dotenv.config();
 
@@ -214,8 +215,10 @@ function parseKishorek(csv: string): Map<string, PincodeRecord> {
 }
 
 // ── Main seed function ──
-async function seed() {
-  await connectDB();
+export async function seedLocations(options: { connect?: boolean; disconnect?: boolean } = {}) {
+  const shouldConnect = options.connect ?? true;
+  const shouldDisconnect = options.disconnect ?? true;
+  if (shouldConnect) await connectDB();
   logger.info("Connected to Postgres for location seeding");
 
   // Check existing count
@@ -226,7 +229,7 @@ async function seed() {
     logger.info(
       `Found ${existingCount} existing locations. Skipping seed (truncate first to re-seed).`,
     );
-    await disconnectDB();
+    if (shouldDisconnect) await disconnectDB();
     return;
   }
 
@@ -298,10 +301,16 @@ async function seed() {
     logger.info(`  ${t.tag}: ${t.count}`);
   }
 
-  await disconnectDB();
+  if (shouldDisconnect) await disconnectDB();
 }
 
-seed().catch((err) => {
-  logger.error("Location seeding failed", err);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1]
+  ? import.meta.url === pathToFileURL(process.argv[1]).href
+  : false;
+
+if (isDirectRun) {
+  seedLocations().catch((err) => {
+    logger.error("Location seeding failed", err);
+    process.exit(1);
+  });
+}

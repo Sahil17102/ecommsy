@@ -20,6 +20,8 @@ import "./cron/trackingCron.js";
 import "./cron/exportCleanupCron.js";
 import "./cron/webhookRetryCron.js";
 import { recoverInterruptedExports } from "./services/exports/index.js";
+import { seedLocations } from "./seeds/locations.js";
+import { seedDelhiveryProvider } from "./seeds/delhiveryProvider.js";
 
 dotenv.config({ override: true });
 
@@ -72,6 +74,8 @@ async function start() {
   await connectDB();
   await seedAdminUser();
   await seedPlans();
+  await seedDelhiveryProvider();
+  await seedLocations({ connect: false, disconnect: false });
   startAllCrons();
   // Exports interrupted by a restart go back in the queue rather than sitting
   // in "processing" forever.
