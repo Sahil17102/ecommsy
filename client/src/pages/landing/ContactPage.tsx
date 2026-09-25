@@ -45,8 +45,8 @@ const channels = [
     tint: "bg-sky-50 text-sky-600",
     title: "Call us",
     body: "Prefer to talk? Our team is a phone call away during business hours.",
-    contact: "+91 87500 47039",
-    href: "tel:+918750047039",
+    contact: "+91 8920715655",
+    href: "tel:+918920715655",
   },
 ];
 
@@ -130,11 +130,9 @@ export function ContactPage() {
                 <div>
                   <div className="text-base font-semibold text-foreground mb-1">Corporate office</div>
                   <div className="text-sm text-muted leading-relaxed">
-                    Searchcraft
+                    Search craft digital, B 20, Sector 1,
                     <br />
-                    Plot No. 55A, Ground Floor, Kh No. 31/12, Block C,
-                    <br />
-                    Bharat Vihar, Kakrola, South West Delhi, Delhi 110078
+                    Noida, UP-India-201301
                   </div>
                 </div>
               </motion.div>

@@ -194,7 +194,7 @@ export const faqs = [
   {
     question: "How can I contact customer support?",
     answer:
-      "Our customer support team is available 24/7 to assist you. You can reach us at +91 87500 47039, email us at cs@boxandbeyond.in, or chat with us on WhatsApp. Our office hours are 9:00 AM to 6:00 PM, Monday to Friday.",
+      "Our customer support team is available 24/7 to assist you. You can reach us at +91 8920715655, visit searchcraftdigital.com, or chat with us on WhatsApp. Our office hours are 9:00 AM to 6:00 PM, Monday to Friday.",
   },
   {
     question: "What are the packaging guidelines?",

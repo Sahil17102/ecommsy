@@ -150,7 +150,7 @@ export function PrivacyPage() {
                     <div className="mt-4 inline-flex flex-col gap-1 bg-white border border-border-light rounded-xl p-5">
                       <span className="text-sm font-semibold text-foreground">Searchcraft</span>
                       <span className="text-sm text-muted">
-                        Plot No. 55A, Block C, Bharat Vihar, Kakrola, Delhi 110078
+                        Search craft digital, B 20, Sector 1, Noida, UP-India-201301
                       </span>
                       <a
                         href="mailto:privacy@boxandbeyond.in"

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Globe2, Phone, MapPin } from "lucide-react";
 import { AppLogo } from "@/components/common/AppLogo";
 
 /* ─── footer link groups ─── */
@@ -101,21 +101,23 @@ export function Footer() {
             {/* Contact info */}
             <div className="space-y-3 mb-6">
               <a
-                href="mailto:cs@boxandbeyond.in"
+                href="https://searchcraftdigital.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white transition-colors no-underline"
               >
-                <Mail className="w-4 h-4 text-primary shrink-0" />
-                cs@boxandbeyond.in
+                <Globe2 className="w-4 h-4 text-primary shrink-0" />
+                searchcraftdigital.com
               </a>
               <a
-                href="tel:+918750047039"
+                href="tel:+918920715655"
                 className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white transition-colors no-underline"
               >
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                +91 87500 47039
+                +91 8920715655
               </a>
               <a
-                href="https://maps.google.com/?q=Plot+55A+Bharat+Vihar+Kakrola+South+West+Delhi+110078"
+                href="https://maps.google.com/?q=B+20+Sector+1+Noida+Uttar+Pradesh+201301"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-2.5 text-sm text-white/50 hover:text-white transition-colors no-underline"
@@ -125,11 +127,9 @@ export function Footer() {
                   <span className="block text-white/70 font-medium mb-0.5">
                     Corporate Office
                   </span>
-                  Plot No. 55A, Ground Floor, Kh No. 31/12,
+                  Search craft digital, B 20, Sector 1,
                   <br />
-                  Block C, Bharat Vihar, Kakrola,
-                  <br />
-                  South West Delhi, Delhi 110078
+                  Noida, UP-India-201301
                 </span>
               </a>
             </div>
