@@ -141,7 +141,7 @@ export const testimonials = [
     name: "Priya Sharma",
     role: "Founder, LoomCraft",
     quote:
-      "Box and Beyond cut our shipping costs by 30% and brought all our courier partners under one roof. The dashboard is a game changer.",
+      "Searchcraft cut our shipping costs by 30% and brought all our courier partners under one roof. The dashboard is a game changer.",
     stars: 5,
   },
   {
@@ -155,16 +155,16 @@ export const testimonials = [
     name: "Ananya Desai",
     role: "E-commerce Manager, StyleNest",
     quote:
-      "The smart routing feature alone saved us lakhs. Box and Beyond picks the fastest, cheapest courier for every order automatically.",
+      "The smart routing feature alone saved us lakhs. Searchcraft picks the fastest, cheapest courier for every order automatically.",
     stars: 5,
   },
 ];
 
 export const faqs = [
   {
-    question: "What services does Box and Beyond provide?",
+    question: "What services does Searchcraft provide?",
     answer:
-      "Box and Beyond provides comprehensive courier & logistics services including B2B and B2C shipping solutions, express delivery, warehousing, distribution, cargo transportation, and reverse logistics. We offer domestic and international shipping services tailored to meet your business needs.",
+      "Searchcraft provides comprehensive courier & logistics services including B2B and B2C shipping solutions, express delivery, warehousing, distribution, cargo transportation, and reverse logistics. We offer domestic and international shipping services tailored to meet your business needs.",
   },
   {
     question: "How can I track my shipment?",

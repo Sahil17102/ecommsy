@@ -20,20 +20,20 @@ export function BrandingPanel() {
       <a href={import.meta.env.VITE_MARKETING_URL || "https://boxsbeyond.com"} className="relative z-10 flex items-center gap-3 text-white no-underline">
         <img src="/brand-mark.png" alt="" className="h-12 w-12 object-contain" />
         <div>
-          <strong className="block text-sm tracking-[0.18em]">BOX & BEYOND</strong>
+          <strong className="block text-sm tracking-[0.18em]">SEARCHCRAFT</strong>
           <span className="text-xs text-white/60">Moving more possibilities</span>
         </div>
       </a>
 
       <div className="relative z-10">
         <div className="mb-10 grid h-56 w-56 place-items-center rounded-[2rem] border border-white/15 bg-white/10 shadow-2xl shadow-black/20 backdrop-blur-xl">
-          <img src="/brand-mark.png" alt="Box and Beyond" className="h-40 w-40 object-contain drop-shadow-2xl" />
+          <img src="/brand-mark.png" alt="Searchcraft" className="h-40 w-40 object-contain drop-shadow-2xl" />
         </div>
         <h1 className="max-w-md text-5xl font-extrabold leading-[1.02] tracking-tight">
           Ship faster from a cleaner command center.
         </h1>
         <p className="mt-5 max-w-sm text-sm leading-6 text-white/68">
-          Login to manage rates, orders, pickups and tracking across the courier network built for Box & Beyond.
+          Login to manage rates, orders, pickups and tracking across the courier network built for Searchcraft.
         </p>
         <div className="mt-8 grid grid-cols-3 gap-3">
           {points.map(({ icon: Icon, label }) => (

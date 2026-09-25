@@ -6,7 +6,7 @@ import { Container } from "@/components/common";
 import { TestimonialsSection } from "./TestimonialsSection";
 
 /* ─────────────────────────────────────────────────────────────
-   Box and Beyond landing — illustrated playful direction.
+   Searchcraft landing — illustrated playful direction.
    Cream background, sticker cards with thick borders + light
    rotations, hand-drawn-style SVG illustrations, big rounded
    typography. Orange dominant, purple accents.
@@ -28,7 +28,7 @@ const SOLUTIONS = [
   {
     icon: Package,
     title: "Bulk orders, one click",
-    body: "Upload a sheet, push a button. Box and Beyond queues the labels, prints the manifests, and books the pickup before your tea cools.",
+    body: "Upload a sheet, push a button. Searchcraft queues the labels, prints the manifests, and books the pickup before your tea cools.",
     accent: ORANGE,
     rotate: -1,
   },
@@ -94,7 +94,7 @@ const FAQS = [
   },
   {
     q: "Which couriers do you support?",
-    a: "Delhivery, Bluedart, Ekart, XpressBees, DTDC, Shadowfax, Ecom Express, India Post, and a growing list. If a courier serves the pincode, Box and Beyond can usually book it.",
+    a: "Delhivery, Bluedart, Ekart, XpressBees, DTDC, Shadowfax, Ecom Express, India Post, and a growing list. If a courier serves the pincode, Searchcraft can usually book it.",
   },
   {
     q: "How do you make money if shipping rates are the same?",

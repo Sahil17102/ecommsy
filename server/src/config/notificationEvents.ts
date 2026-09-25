@@ -51,9 +51,9 @@ const BRAND_ACCENT = "#EF5C20";  // Vermilion Orange — gradient accent only
 
 // Hosted logo URL. Email clients can't reach {{appUrl}} when CLIENT_URL is
 // localhost, so the logo is referenced by its absolute deployed URL (kept
-// independent of CLIENT_URL on purpose). Served from client/public/box-and-beyond-logo.png
+// independent of CLIENT_URL on purpose). Served from the deployed client assets.
 // on the production frontend.
-const BRAND_LOGO_URL = "https://boxandbeyond.in/box-and-beyond-logo.png";
+const BRAND_LOGO_URL = "https://ecommsy-83qx.onrender.com/brand-mark.png";
 
 const button = (href: string, label: string): string => `
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0;">
@@ -124,7 +124,7 @@ const wrap = (bodyHtml: string, opts: WrapOptions = {}): string => {
                              style="display: block; width: 40px; height: 40px; border: 0; border-radius: 10px; object-fit: contain;" />
                       </td>
                       <td style="vertical-align: middle; color: ${TEXT_PRIMARY}; font-family: ${FONT}; font-size: 20px; font-weight: 700; letter-spacing: -0.3px;">
-                        Box and Beyond
+                        Searchcraft
                       </td>
                     </tr>
                   </table>

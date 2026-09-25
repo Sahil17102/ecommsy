@@ -28,7 +28,7 @@ const SAMPLE = {
     { name: "Silk Dupatta", hsn: "5007", sku: "DPT-SLK-01", qty: 1, total: 799 },
   ],
   pickup: {
-    name: "Box and Beyond Warehouse",
+    name: "Searchcraft Warehouse",
     address: "Plot 12, DSIDC Complex",
     city: "New Delhi",
     state: "Delhi",
@@ -37,7 +37,7 @@ const SAMPLE = {
     gst: "07AABCU9603R1ZP",
   },
   rto: {
-    name: "Box and Beyond Returns",
+    name: "Searchcraft Returns",
     address: "Plot 12, DSIDC Complex",
     city: "New Delhi",
     state: "Delhi",
@@ -61,7 +61,7 @@ export default function LabelPreview({ settings }: LabelPreviewProps) {
       {/* Card mimicking the 4×6 inch shipping label PDF */}
       <div className="bg-white border border-border-light rounded-xl shadow-sm overflow-hidden">
         <div className="flex flex-col text-[10px] leading-tight text-slate-900 p-4">
-          {/* Header: seller logo (left) + boxandbeyond wordmark (right) */}
+          {/* Header: seller logo (left) + Searchcraft wordmark (right) */}
           <div className="flex min-h-[40px] items-center justify-between gap-3">
             {s.showLogo !== false && s.logoUrl ? (
               <img

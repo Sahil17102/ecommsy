@@ -488,7 +488,7 @@ export async function sendTestWebhook(
   const envelope =
     testEvent === WEBHOOK_PING_EVENT
       ? buildEnvelope(WEBHOOK_PING_EVENT, {
-          message: "This is a test event from Box and Beyond. Your endpoint is reachable.",
+          message: "This is a test event from Searchcraft. Your endpoint is reachable.",
           sample: sampleOrderEventData(),
         })
       : buildEnvelope(testEvent, {

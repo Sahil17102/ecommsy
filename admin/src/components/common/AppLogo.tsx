@@ -22,7 +22,7 @@ const sizeMap: Record<LogoSize, { img: string; text: string }> = {
 export function AppLogo({
   size = "md",
   showText = true,
-  label = "Box & Beyond",
+  label = "Searchcraft",
   textClassName = "text-foreground",
   to = "/",
   className = "",
@@ -30,7 +30,7 @@ export function AppLogo({
   const { img, text } = sizeMap[size];
   const content = (
     <>
-      <img src={logo} alt="Box and Beyond" className={`${img} object-contain shrink-0`} />
+      <img src={logo} alt="Searchcraft" className={`${img} object-contain shrink-0`} />
       {showText && (
         <span className={`${text} font-extrabold tracking-tight whitespace-nowrap ${textClassName}`}>
           {label}

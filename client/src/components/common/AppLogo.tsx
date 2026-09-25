@@ -34,12 +34,12 @@ export function AppLogo({
     <>
       <img
         src={logo}
-        alt="Box and Beyond"
+        alt="Searchcraft"
         className="h-11 w-11 object-contain shrink-0"
       />
       {showText && (
         <span className={`${text} font-bold tracking-tight whitespace-nowrap ${textClassName}`}>
-          Box and Beyond
+          Searchcraft
         </span>
       )}
     </>

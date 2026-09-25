@@ -100,11 +100,11 @@ export function PartnersPage() {
         variant="dark"
         title={
           <>
-            Grow with Box and Beyond.{" "}
+            Grow with Searchcraft.{" "}
             <span className="text-gradient-accent">Earn every month.</span>
           </>
         }
-        subtitle="Refer Indian ecommerce sellers to Box and Beyond and earn recurring commission on every shipment they make — for as long as they ship."
+        subtitle="Refer Indian ecommerce sellers to Searchcraft and earn recurring commission on every shipment they make — for as long as they ship."
         primaryCta={{ label: "Become a Partner", href: "/signup" }}
         secondaryCta={{ label: "Talk to Us", href: "/contact" }}
       />
@@ -118,7 +118,7 @@ export function PartnersPage() {
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
               If you know ecommerce sellers,{" "}
-              <span className="text-gradient-primary">you can earn with Box and Beyond</span>
+              <span className="text-gradient-primary">you can earn with Searchcraft</span>
             </h2>
           </motion.div>
 

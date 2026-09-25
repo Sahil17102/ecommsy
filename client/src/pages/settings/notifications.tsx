@@ -54,7 +54,7 @@ export default function NotificationPreferencesPage() {
       <div>
         <h1 className="text-xl sm:text-2xl font-bold text-foreground">Notification preferences</h1>
         <p className="text-xs text-muted mt-1">
-          Choose how and when you want to hear from Box and Beyond.
+          Choose how and when you want to hear from Searchcraft.
         </p>
       </div>
 

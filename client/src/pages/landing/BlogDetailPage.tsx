@@ -25,7 +25,7 @@ export function BlogDetailPage() {
   useEffect(() => {
     if (!post) return;
     const previousTitle = document.title;
-    document.title = post.seoTitle || `${post.title} — Box and Beyond Blog`;
+    document.title = post.seoTitle || `${post.title} — Searchcraft Blog`;
 
     const metaDesc = document.querySelector('meta[name="description"]');
     const previousDesc = metaDesc?.getAttribute("content") ?? null;

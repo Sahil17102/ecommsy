@@ -27,7 +27,7 @@ type Review = {
 
 const REVIEWS: Review[] = [
   {
-    quote: "We were juggling three courier panels every morning — it was exhausting. Box and Beyond pulled it all into one screen and the team got their afternoons back. We saved ",
+    quote: "We were juggling three courier panels every morning — it was exhausting. Searchcraft pulled it all into one screen and the team got their afternoons back. We saved ",
     highlight: "₹38,000 in the first month",
     quoteEnd: " on shipping alone.",
     name: "Riya Kapoor",
@@ -52,7 +52,7 @@ const REVIEWS: Review[] = [
     featured: true,
   },
   {
-    quote: "Other aggregators felt like a courier website with a login. Box and Beyond feels like ",
+    quote: "Other aggregators felt like a courier website with a login. Searchcraft feels like ",
     highlight: "actual software built for my business.",
     quoteEnd: " The courier it picks has been the right call almost every time.",
     name: "Sneha Mehta",
@@ -76,7 +76,7 @@ const REVIEWS: Review[] = [
     badgeColor: ORANGE,
   },
   {
-    quote: "Signed up, connected Shopify in five minutes, and shipped our first order through Box and Beyond the same afternoon. ",
+    quote: "Signed up, connected Shopify in five minutes, and shipped our first order through Searchcraft the same afternoon. ",
     highlight: "I didn't expect it to be this easy.",
     quoteEnd: "",
     name: "Neha Kulkarni",
@@ -88,7 +88,7 @@ const REVIEWS: Review[] = [
     badgeColor: PURPLE,
   },
   {
-    quote: "We sell on Meesho, Flipkart and our own store. Box and Beyond tracks every order in one dashboard — ",
+    quote: "We sell on Meesho, Flipkart and our own store. Searchcraft tracks every order in one dashboard — ",
     highlight: "no more switching between four panels.",
     quoteEnd: " This is exactly what we needed.",
     name: "Kiran Shah",
@@ -210,7 +210,7 @@ export function TestimonialsSection() {
             for it.
           </h2>
           <p className="mt-6 text-lg" style={{ color: "#3A2E26" }}>
-            1,200+ Indian D2C brands trust Box and Beyond to ship smarter, cut costs, and grow faster.
+            1,200+ Indian D2C brands trust Searchcraft to ship smarter, cut costs, and grow faster.
           </p>
         </div>
 

@@ -45,7 +45,7 @@ const timeline: { icon: typeof Clock; grad: GradientKey; year: string; body: str
     icon: Users,
     grad: "green",
     year: "Today — 1,200+ sellers, 25+ couriers",
-    body: "₹40 lakh saved every month by sellers shipping smarter with Box and Beyond.",
+    body: "₹40 lakh saved every month by sellers shipping smarter with Searchcraft.",
   },
 ];
 
@@ -98,7 +98,7 @@ export function AboutPage() {
             Built for India.
           </>
         }
-        subtitle="Box and Beyond was founded on one belief — Indian ecommerce businesses deserve smarter shipping tools, not just cheaper courier rates."
+        subtitle="Searchcraft was founded on one belief — Indian ecommerce businesses deserve smarter shipping tools, not just cheaper courier rates."
       />
 
       <StatBand stats={stats} />
@@ -119,7 +119,7 @@ export function AboutPage() {
               our RTO jump this month?
             </p>
             <p className="mt-4 text-[15px] leading-7" style={{ color: SLATE }}>
-              There was no single platform that answered all of it. So we built one. Box and Beyond started
+              There was no single platform that answered all of it. So we built one. Searchcraft started
               as a rate comparison tool and grew into a full shipping operating system — comparison,
               booking, tracking, COD remittance, and business intelligence in one place.
             </p>
@@ -279,7 +279,7 @@ export function AboutPage() {
       <CtaBand
         title="Built in Delhi."
         highlight="Made for India."
-        subtitle="Join 1,200+ Indian D2C brands shipping smarter with Box and Beyond. Set up your account in under 5 minutes."
+        subtitle="Join 1,200+ Indian D2C brands shipping smarter with Searchcraft. Set up your account in under 5 minutes."
         buttons={
           <>
             <BtnPrimary href="/careers">Join our team</BtnPrimary>

@@ -442,7 +442,7 @@ export function WeightEstimatorPage() {
             your shipping costs?
           </>
         }
-        subtitle="Join 1.5 Lakh+ businesses using Box and Beyond to ship smarter and cheaper across India."
+        subtitle="Join 1.5 Lakh+ businesses using Searchcraft to ship smarter and cheaper across India."
         primaryCta={{ label: "Start Free Trial", href: "/signup" }}
         secondaryCta={{ label: "Compare Rates", href: "/resources/rate-calculator" }}
       />

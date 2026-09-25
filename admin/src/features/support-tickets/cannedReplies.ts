@@ -13,7 +13,7 @@ export interface CannedReplyGroup {
 const OPENINGS: CannedReply[] = [
   {
     label: "Greeting",
-    body: "Hi there, thank you for reaching out to Box and Beyond support. We've received your ticket and are looking into it.",
+    body: "Hi there, thank you for reaching out to Searchcraft support. We've received your ticket and are looking into it.",
   },
   {
     label: "Need more info",

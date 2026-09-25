@@ -377,7 +377,7 @@ export function renderDocsPage(spec: Json, opts: { nonce: string; specUrl: strin
   <aside class="sidebar">
     <div class="brand">
       <div>
-        <div class="brand-name">Box and Beyond</div>
+        <div class="brand-name">Searchcraft</div>
         <div class="brand-sub">API v${escapeHtml(String(info.version ?? "1.0.0"))}</div>
       </div>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch between light and dark">
@@ -391,7 +391,7 @@ export function renderDocsPage(spec: Json, opts: { nonce: string; specUrl: strin
   <main class="main">
     ${main.join("\n")}
     <footer class="footer">
-      <p>© ${year} Box and Beyond. Questions? <a href="mailto:support@boxandbeyond.in">support@boxandbeyond.in</a></p>
+      <p>© ${year} Searchcraft. Questions? <a href="mailto:support@boxandbeyond.in">support@boxandbeyond.in</a></p>
     </footer>
   </main>
 </div>

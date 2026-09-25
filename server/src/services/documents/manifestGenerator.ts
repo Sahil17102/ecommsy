@@ -11,7 +11,7 @@ interface OrderProduct {
 }
 
 /** Platform brand shown in the manifest title. */
-const BRAND = "Box and Beyond";
+const BRAND = "Searchcraft";
 
 export interface ManifestMeta {
   /** Seller / business display name (e.g. "MAIN ADMIN RANCHI"). */

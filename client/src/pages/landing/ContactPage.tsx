@@ -20,7 +20,7 @@ const channels = [
     icon: <Phone className="w-5 h-5" />,
     tint: "bg-primary-bg text-primary",
     title: "Talk to sales",
-    body: "Interested in Box and Beyond for your business? Our team will walk you through plans, pricing, and setup.",
+    body: "Interested in Searchcraft for your business? Our team will walk you through plans, pricing, and setup.",
     contact: "sales@boxandbeyond.in",
     href: "mailto:sales@boxandbeyond.in",
   },
@@ -28,7 +28,7 @@ const channels = [
     icon: <HelpCircle className="w-5 h-5" />,
     tint: "bg-accent-bg text-accent",
     title: "Seller support",
-    body: "Already shipping with Box and Beyond? Raise a ticket or chat with our support team — Mon–Sat, 9am–7pm IST.",
+    body: "Already shipping with Searchcraft? Raise a ticket or chat with our support team — Mon–Sat, 9am–7pm IST.",
     contact: "cs@boxandbeyond.in",
     href: "mailto:cs@boxandbeyond.in",
   },
@@ -130,7 +130,7 @@ export function ContactPage() {
                 <div>
                   <div className="text-base font-semibold text-foreground mb-1">Corporate office</div>
                   <div className="text-sm text-muted leading-relaxed">
-                    Box and Beyond
+                    Searchcraft
                     <br />
                     Plot No. 55A, Ground Floor, Kh No. 31/12, Block C,
                     <br />
@@ -228,7 +228,7 @@ export function ContactPage() {
             ship it yourself?
           </>
         }
-        subtitle="Set up your Box and Beyond account in under 5 minutes — no call required. Our team is here the moment you need a hand."
+        subtitle="Set up your Searchcraft account in under 5 minutes — no call required. Our team is here the moment you need a hand."
         primaryCta={{ label: "Start Shipping Free", href: "/signup" }}
         secondaryCta={{ label: "Explore the Platform", href: "/platform" }}
       />

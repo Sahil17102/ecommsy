@@ -2,7 +2,7 @@
  * Single source of truth for app theme.
  * No hardcoded colors elsewhere — use these tokens or CSS vars derived from them.
  *
- * Palette sampled directly from the Box and Beyond logo:
+ * Palette sampled directly from the Searchcraft logo:
  *   primary = Logo violet (#6757E8)
  *   accent  = Deep logo purple (#332D7A)
  * Font: Plus Jakarta Sans

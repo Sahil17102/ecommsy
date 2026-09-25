@@ -19,7 +19,7 @@ export const WEBHOOK_EVENT_CATALOGUE = [
     event: "order.created",
     summary: "Order accepted",
     description:
-      "Box and Beyond has validated and stored the order. Fired by POST /orders, immediately before `order.booked`.",
+      "Searchcraft has validated and stored the order. Fired by POST /orders, immediately before `order.booked`.",
   },
   {
     event: "order.booked",
@@ -112,7 +112,7 @@ export interface WebhookOrderEventData {
   external_order_id: string | null;
   /** Source channel captured at import time, e.g. `external_store`. */
   source: string | null;
-  /** Box and Beyond-side shipment UUID. Stable for the life of the shipment. */
+  /** Searchcraft-side shipment UUID. Stable for the life of the shipment. */
   shipment_id: string;
   /** Courier airway bill. `null` until the courier assigns one. */
   awb: string | null;
@@ -152,7 +152,7 @@ export interface WebhookEnvelope<T = unknown> {
   id: string;
   event: string;
   api_version: string;
-  /** When Box and Beyond emitted the event, ISO-8601. */
+  /** When Searchcraft emitted the event, ISO-8601. */
   created_at: string;
   data: T;
 }

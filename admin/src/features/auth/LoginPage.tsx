@@ -56,7 +56,7 @@ export default function LoginPage() {
           <div className="relative z-10">
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-[#d8d2ff]">
               <Sparkles size={14} />
-              Box & Beyond admin command
+              Searchcraft admin command
             </div>
             <h1 className="max-w-xl text-5xl font-extrabold leading-[1.02] tracking-tight">
               Control every shipment layer from one purple workspace.
@@ -96,7 +96,7 @@ export default function LoginPage() {
                   <Layers3 className="h-7 w-7 text-[#4E4AC3]" />
                 </div>
                 <h2 className="text-3xl font-extrabold tracking-tight text-[#191446]">Admin Login</h2>
-                <p className="mt-2 text-sm text-[#6f6a8d]">Sign in to the Box & Beyond control panel.</p>
+                <p className="mt-2 text-sm text-[#6f6a8d]">Sign in to the Searchcraft control panel.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">

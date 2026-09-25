@@ -101,7 +101,7 @@ export const ERRORS_GUIDE: GuideSection = {
     "Request-validation failures answer `400` with a field-level `errors[]` array — `path` names the field",
     "that failed and `msg` is the message to show. Everything else answers with a single `error` string.",
     "",
-    "A `502` from an order endpoint means the **courier** rejected the request, not that Box and Beyond failed. Those",
+    "A `502` from an order endpoint means the **courier** rejected the request, not that Searchcraft failed. Those",
     "are safe to retry once the underlying problem is fixed — nothing is charged and no order is stored when a",
     "booking is rejected.",
   ].join("\n"),

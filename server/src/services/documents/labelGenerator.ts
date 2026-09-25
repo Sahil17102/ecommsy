@@ -345,7 +345,7 @@ function drawLabelPage(doc: PDFKit.PDFDocument, data: LabelRenderData): void {
       return h;
     };
 
-    // ── Header: seller logo (left) + boxandbeyond wordmark (right) ──
+    // ── Header: seller logo (left) + Searchcraft wordmark (right) ──
     // Both marks are vertically centred in a fixed band so the header height —
     // and therefore everything below it — doesn't move with the logo's shape.
     const headerTop = y;

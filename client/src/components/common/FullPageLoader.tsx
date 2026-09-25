@@ -21,7 +21,7 @@ export default function FullPageLoader() {
         <div className="relative w-16 h-16 animate-[float_2.5s_ease-in-out_infinite]">
           <img
             src={logo}
-            alt="Box and Beyond"
+            alt="Searchcraft"
             className="w-16 h-16 object-contain drop-shadow-lg"
           />
         </div>

@@ -101,7 +101,7 @@ const benefits = [
     icon: <RefreshCw className="w-6 h-6" />,
     title: "Automatic Order Sync",
     description:
-      "New orders flow into your Box and Beyond dashboard the moment they're placed — zero manual work.",
+      "New orders flow into your Searchcraft dashboard the moment they're placed — zero manual work.",
   },
   {
     icon: <Layers className="w-6 h-6" />,
@@ -133,7 +133,7 @@ const steps = [
     icon: <Settings className="w-5 h-5" />,
     title: "Authorize Access",
     description:
-      "Securely authorize Box and Beyond to sync your orders and inventory.",
+      "Securely authorize Searchcraft to sync your orders and inventory.",
   },
   {
     icon: <Zap className="w-5 h-5" />,

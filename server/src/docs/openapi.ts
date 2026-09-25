@@ -5,7 +5,7 @@ import {
 } from "../services/webhookEvents.js";
 
 /**
- * OpenAPI 3.1 description of the public Box and Beyond API.
+ * OpenAPI 3.1 description of the public Searchcraft API.
  *
  * This object is the ONLY source of truth for the published docs: the HTML
  * page at /api/docs and the machine-readable spec at /api/docs/openapi.json are
@@ -239,11 +239,11 @@ export function buildOpenApiDocument(): Record<string, unknown> {
   return {
     openapi: "3.1.0",
     info: {
-      title: "Box and Beyond Shipping API",
+      title: "Searchcraft Shipping API",
       version: "1.0.0",
-      summary: "Book, track and manage shipments across every courier Box and Beyond aggregates.",
+      summary: "Book, track and manage shipments across every courier Searchcraft aggregates.",
       description: [
-        "The Box and Beyond API lets you book shipments across every courier we aggregate, download labels,",
+        "The Searchcraft API lets you book shipments across every courier we aggregate, download labels,",
         "track parcels and receive real-time status webhooks — from your own storefront, ERP or WMS.",
         "",
         "**Base URL**",
@@ -265,7 +265,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
         "5. Turn on webhooks once in the panel (**Settings → Webhooks**) and every order status change is pushed to your URL — see *Webhook events* below.",
       ].join("\n"),
       contact: {
-        name: "Box and Beyond Integrations",
+        name: "Searchcraft Integrations",
         url: `${SITE_URL}`,
         email: "support@boxandbeyond.in",
       },
@@ -644,8 +644,8 @@ export function buildOpenApiDocument(): Record<string, unknown> {
           summary: "Get an order",
           operationId: "getOrder",
           security: bearer,
-          description: "`id` is the Box and Beyond shipment UUID (`order.id`), not your own `orderId`.",
-          parameters: [pathParam("id", "Box and Beyond shipment UUID.")],
+          description: "`id` is the Searchcraft shipment UUID (`order.id`), not your own `orderId`.",
+          parameters: [pathParam("id", "Searchcraft shipment UUID.")],
           responses: {
             200: { description: "The order.", content: jsonContent({ success: true, order: ORDER_EXAMPLE }) },
             401: RESPONSE_401,
@@ -696,7 +696,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
             "`cancelled` is terminal: later courier scans for the same AWB are recorded on the timeline but never",
             "move the order back out of it.",
           ].join("\n"),
-          parameters: [pathParam("id", "Box and Beyond shipment UUID.")],
+          parameters: [pathParam("id", "Searchcraft shipment UUID.")],
           requestBody: { required: false, content: jsonContent({ reason: "Buyer cancelled on the storefront" }) },
           responses: {
             200: { description: "Cancelled.", content: jsonContent({ message: "Order cancelled", order: { ...ORDER_EXAMPLE, status: "cancelled" } }) },
@@ -714,7 +714,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
           security: bearer,
           description: "Returns the label PDF itself, not JSON. Add `?force=1` to bypass the cached copy and regenerate.",
           parameters: [
-            pathParam("id", "Box and Beyond shipment UUID."),
+            pathParam("id", "Searchcraft shipment UUID."),
             queryParam("force", "Set to `1` to regenerate instead of serving the cached label.", { type: "string", enum: ["1"] }),
           ],
           responses: {
@@ -730,7 +730,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
           summary: "Download the shipment invoice",
           operationId: "getOrderInvoice",
           security: bearer,
-          parameters: [pathParam("id", "Box and Beyond shipment UUID.")],
+          parameters: [pathParam("id", "Searchcraft shipment UUID.")],
           responses: {
             200: { description: "The invoice PDF.", content: { "application/pdf": { schema: { type: "string", format: "binary" } } } },
             401: RESPONSE_401,
@@ -747,7 +747,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
           operationId: "getOrderTracking",
           security: bearer,
           description: "Every scan recorded for the shipment, newest first — courier pushes and our own polling both land here.",
-          parameters: [pathParam("id", "Box and Beyond shipment UUID.")],
+          parameters: [pathParam("id", "Searchcraft shipment UUID.")],
           responses: {
             200: {
               description: "Tracking events, newest first.",
@@ -847,7 +847,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
             "- `reschedule` — deliver on `rescheduledDate` instead.",
             "- `rto` — stop trying and return the parcel. Moves the order to `rto_initiated` and fires `order.rto_initiated`.",
           ].join("\n"),
-          parameters: [pathParam("id", "Box and Beyond shipment UUID.")],
+          parameters: [pathParam("id", "Searchcraft shipment UUID.")],
           requestBody: {
             required: true,
             content: jsonContent({ action: "reattempt", remarks: "Buyer asked for delivery after 6pm", updatedPhone: "9876543299" }),
@@ -1113,10 +1113,10 @@ export function buildOpenApiDocument(): Record<string, unknown> {
             order_id: { type: "string", description: "Your own order reference — the `orderId` you sent to POST /orders." },
             external_order_id: { type: ["string", "null"], description: "Store/marketplace order id sent to POST /api/external/orders/import, when present." },
             source: { type: ["string", "null"], description: "Source channel captured at import time, e.g. `external_store`." },
-            shipment_id: { type: "string", format: "uuid", description: "Box and Beyond shipment UUID. Stable for the life of the shipment." },
+            shipment_id: { type: "string", format: "uuid", description: "Searchcraft shipment UUID. Stable for the life of the shipment." },
             awb: { type: ["string", "null"], description: "Courier airway bill. Null until the courier assigns one." },
             awb_number: { type: ["string", "null"], deprecated: true, description: "Alias of `awb`, kept for pre-v1 subscribers." },
-            status: { type: "string", description: "Box and Beyond order status after this event." },
+            status: { type: "string", description: "Searchcraft order status after this event." },
             previous_status: { type: ["string", "null"], description: "Status the order moved from, when the event is a transition." },
             order_type: { type: "string", enum: ["B2C", "B2B"] },
             payment_type: { type: ["string", "null"], enum: ["prepaid", "cod", null] },

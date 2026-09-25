@@ -36,7 +36,7 @@ interface BillingInvoicePdfInput {
   totalCodCharges: number;
 }
 
-const PLATFORM_NAME = "Box and Beyond";
+const PLATFORM_NAME = "Searchcraft";
 const PLATFORM_ADDRESS = "India";
 const PLATFORM_GST = "";
 

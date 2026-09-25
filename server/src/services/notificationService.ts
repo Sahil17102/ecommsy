@@ -57,7 +57,7 @@ export async function notify(input: NotifyInput): Promise<void> {
 
   // Global template variables — available to every event template so copy
   // and redirect links stay in sync with deployment config.
-  const BRAND = "Box and Beyond";
+  const BRAND = "Searchcraft";
   const APP_URL = process.env.CLIENT_URL ?? "https://app.boxandbeyond.in";
   const ADMIN_URL = process.env.ADMIN_URL ?? "https://admin.boxandbeyond.in";
   const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL ?? "support@boxandbeyond.com";

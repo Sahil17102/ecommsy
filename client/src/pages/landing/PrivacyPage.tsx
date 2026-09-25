@@ -14,7 +14,7 @@ const sections = [
     id: "info",
     title: "1. Information we collect",
     paras: [
-      "When you register on Box and Beyond, we collect information you provide directly — including your name, email address, mobile number, company name, and GST details where applicable.",
+      "When you register on Searchcraft, we collect information you provide directly — including your name, email address, mobile number, company name, and GST details where applicable.",
       "We also collect information automatically as you use our platform — such as shipment data, order details, carrier interactions, IP address, device information, and usage patterns within the dashboard.",
     ],
   },
@@ -22,7 +22,7 @@ const sections = [
     id: "use",
     title: "2. How we use information",
     paras: [
-      "We use your information to provide and improve Box and Beyond's services — including rate comparison, shipment booking, tracking, COD remittance, recommendations, and billing.",
+      "We use your information to provide and improve Searchcraft's services — including rate comparison, shipment booking, tracking, COD remittance, recommendations, and billing.",
       "We also use aggregated, anonymised data to improve our platform and build better features. We will never sell your personal information to third parties.",
     ],
   },
@@ -30,7 +30,7 @@ const sections = [
     id: "cookies",
     title: "3. Cookies & tracking",
     paras: [
-      "Box and Beyond uses essential cookies to keep you logged in and maintain your session. We also use analytics cookies to understand how the platform is used.",
+      "Searchcraft uses essential cookies to keep you logged in and maintain your session. We also use analytics cookies to understand how the platform is used.",
       "You can disable non-essential cookies via your browser settings at any time. Disabling essential cookies may affect your ability to use the platform.",
     ],
   },
@@ -97,7 +97,7 @@ export function PrivacyPage() {
         badge="Legal"
         variant="light"
         title="Privacy Policy"
-        subtitle={`Last updated: ${LAST_UPDATED} · Box and Beyond`}
+        subtitle={`Last updated: ${LAST_UPDATED} · Searchcraft`}
       />
 
       {/* ━━━ CONTENT ━━━ */}
@@ -148,7 +148,7 @@ export function PrivacyPage() {
                   ))}
                   {s.id === "contact" && (
                     <div className="mt-4 inline-flex flex-col gap-1 bg-white border border-border-light rounded-xl p-5">
-                      <span className="text-sm font-semibold text-foreground">Box and Beyond</span>
+                      <span className="text-sm font-semibold text-foreground">Searchcraft</span>
                       <span className="text-sm text-muted">
                         Plot No. 55A, Block C, Bharat Vihar, Kakrola, Delhi 110078
                       </span>

@@ -176,7 +176,7 @@ export function Footer() {
         {/* ─── Divider + bottom bar ─── */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40">
-            &copy; {new Date().getFullYear()} Box and Beyond. All rights reserved.
+            &copy; {new Date().getFullYear()} Searchcraft. All rights reserved.
           </p>
           <p className="text-xs text-white/30">
             Made with care in India

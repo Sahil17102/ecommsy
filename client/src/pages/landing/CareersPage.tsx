@@ -29,7 +29,7 @@ const perks = [
   {
     icon: <TrendingUp className="w-6 h-6" />,
     title: "Grow fast",
-    body: "We're early-stage. The people who join now will lead teams as Box and Beyond scales.",
+    body: "We're early-stage. The people who join now will lead teams as Searchcraft scales.",
   },
   {
     icon: <Globe className="w-6 h-6" />,
@@ -87,7 +87,7 @@ const roles = [
 ];
 
 const hiring = [
-  { n: "1", title: "Apply", body: "Send your CV and a short note on why Box and Beyond." },
+  { n: "1", title: "Apply", body: "Send your CV and a short note on why Searchcraft." },
   { n: "2", title: "Intro call", body: "A 30-minute chat with the hiring manager." },
   { n: "3", title: "Task / Interview", body: "A small practical task or technical discussion." },
   { n: "4", title: "Offer", body: "Decision within 5 working days. No ghosting." },
@@ -240,7 +240,7 @@ export function CareersPage() {
         }
         subtitle="Join us in Delhi — or remotely — and help shape the future of Indian ecommerce shipping."
         primaryCta={{ label: "Email Your CV", href: "mailto:careers@boxandbeyond.in" }}
-        secondaryCta={{ label: "About Box and Beyond", href: "/about" }}
+        secondaryCta={{ label: "About Searchcraft", href: "/about" }}
       />
     </>
   );
