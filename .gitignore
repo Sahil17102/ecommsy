@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+api-docs/
+
+# Build
+dist/
+*.tsbuildinfo
+.vite/
+.next/
+.next-dev/
+playwright-report/
+test-results/
+.data/
+
+# Test
+coverage/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+lead-magnet/
+# Generated export files (server/tmp/exports)
+tmp/
+
+# Imported local artifacts that must not be published
+*.bak.*
+*-bug-repair-report.csv

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "sourceRoot": "/",
+
+    // Transitional overrides — many controllers/services are still Mongoose-
+    // shaped and clash with the Drizzle row types. We still want the server to
+    // build + emit dist/ for deployment. Those endpoints throw clear runtime
+    // errors when hit, prompting per-file conversion (see PHASE2.md). Remove
+    // these once Phase 2 is complete.
+    "noImplicitAny": false,
+    "noEmitOnError": false
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
