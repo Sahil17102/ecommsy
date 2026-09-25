@@ -116,7 +116,7 @@ export function EndpointFormDrawer({
                   type="url"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
-                  placeholder="https://yourbrand.in/hooks/box-and-beyond"
+                  placeholder="https://yourbrand.in/hooks/searchcraft"
                   autoComplete="off"
                   spellCheck={false}
                   className={`w-full px-3.5 py-2.5 rounded-xl bg-background-elevated border text-sm text-foreground font-mono placeholder:font-sans placeholder:text-tertiary outline-none transition-colors ${

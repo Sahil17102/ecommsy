@@ -282,7 +282,7 @@ export default function ShippingScene() {
         <img
           className="scene-fallback"
           src="/brand-mark.png"
-          alt="Box and Beyond shipping boxes"
+          alt="Searchcraft shipping boxes"
         />
       )}
       <div className="scene-note">

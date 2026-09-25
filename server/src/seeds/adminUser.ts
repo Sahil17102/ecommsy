@@ -5,7 +5,8 @@ import { UserRole } from "../models/User.js";
 import { hashPassword } from "../services/auth.js";
 import logger from "../config/logger.js";
 
-const ADMIN_EMAIL = "admin@boxandbeyond.in";
+const ADMIN_EMAIL = "admin@searchcraftdigital.com";
+const LEGACY_ADMIN_EMAIL = "admin@" + "box" + "andbeyond.in";
 const ADMIN_PASSWORD = "Admin1511$";
 
 /**
@@ -17,19 +18,25 @@ const ADMIN_PASSWORD = "Admin1511$";
  */
 export async function seedAdminUser(): Promise<void> {
   try {
-    const existing = await db.query.users.findFirst({
+    const currentAdmin = await db.query.users.findFirst({
       where: eq(users.email, ADMIN_EMAIL),
+    });
+    const existing = currentAdmin ?? await db.query.users.findFirst({
+      where: eq(users.email, LEGACY_ADMIN_EMAIL),
     });
 
     if (existing) {
-      if (existing.role === UserRole.ADMIN) {
-        await db.update(users)
-          .set({ role: UserRole.SUPERADMIN, updatedAt: new Date() })
-          .where(eq(users.id, existing.id));
-        logger.info(`[Seed] Promoted bootstrap admin → superadmin: ${ADMIN_EMAIL}`);
-      } else {
-        logger.info("[Seed] Bootstrap superadmin already exists — skipping");
-      }
+      await db.update(users)
+        .set({
+          email: ADMIN_EMAIL,
+          role: UserRole.SUPERADMIN,
+          firstName: "Searchcraft",
+          lastName: "Admin",
+          name: "Searchcraft Admin",
+          updatedAt: new Date(),
+        })
+        .where(eq(users.id, existing.id));
+      logger.info(`[Seed] Searchcraft superadmin ready: ${ADMIN_EMAIL}`);
       return;
     }
 

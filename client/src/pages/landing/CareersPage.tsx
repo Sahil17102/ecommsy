@@ -112,7 +112,7 @@ export function CareersPage() {
         }
         subtitle="We're a small, focused team solving real problems for Indian sellers. If that excites you, we want to hear from you."
         primaryCta={{ label: "View Open Roles", href: "#roles" }}
-        secondaryCta={{ label: "Email Us", href: "mailto:careers@boxandbeyond.in" }}
+        secondaryCta={{ label: "Email Us", href: "mailto:careers@searchcraftdigital.com" }}
       />
 
       {/* ━━━ WHY JOIN ━━━ */}
@@ -180,7 +180,7 @@ export function CareersPage() {
                   </div>
                 </div>
                 <a
-                  href="mailto:careers@boxandbeyond.in"
+                  href="mailto:careers@searchcraftdigital.com"
                   className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors no-underline"
                 >
                   Apply now
@@ -192,8 +192,8 @@ export function CareersPage() {
 
           <p className="text-center text-sm text-muted mt-8">
             Don't see your role? Email us at{" "}
-            <a href="mailto:careers@boxandbeyond.in" className="text-primary font-semibold underline underline-offset-2">
-              careers@boxandbeyond.in
+            <a href="mailto:careers@searchcraftdigital.com" className="text-primary font-semibold underline underline-offset-2">
+              careers@searchcraftdigital.com
             </a>
           </p>
         </Container>
@@ -239,7 +239,7 @@ export function CareersPage() {
           </>
         }
         subtitle="Join us in Delhi — or remotely — and help shape the future of Indian ecommerce shipping."
-        primaryCta={{ label: "Email Your CV", href: "mailto:careers@boxandbeyond.in" }}
+        primaryCta={{ label: "Email Your CV", href: "mailto:careers@searchcraftdigital.com" }}
         secondaryCta={{ label: "About Searchcraft", href: "/about" }}
       />
     </>

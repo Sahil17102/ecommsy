@@ -86,7 +86,7 @@ export function SecretModal({ secret, reason, onClose }: SecretModalProps) {
                 )}
 
                 <p className="text-[11px] text-muted leading-relaxed">
-                  Verify it on the <code className="font-mono">X-Box-And-Beyond-Signature</code> header of
+                  Verify it on the <code className="font-mono">X-Searchcraft-Signature</code> header of
                   every request.{" "}
                   <a
                     href={docsUrl()}

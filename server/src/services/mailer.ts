@@ -16,7 +16,7 @@ export interface SendEmailParams {
  */
 export async function sendEmail(params: SendEmailParams): Promise<boolean> {
   const apiKey = process.env.BREVO_API_KEY;
-  const from = process.env.EMAIL_FROM ?? "noreply@boxandbeyond.in";
+  const from = process.env.EMAIL_FROM ?? "noreply@searchcraftdigital.com";
   const fromName = process.env.EMAIL_FROM_NAME ?? "Searchcraft";
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT ?? 587);

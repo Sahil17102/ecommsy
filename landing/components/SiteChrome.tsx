@@ -11,7 +11,7 @@ import {
   Package,
   MoveUpRight,
 } from "lucide-react";
-export const authUrl = `${process.env.NEXT_PUBLIC_CLIENT_URL || "https://app.boxsbeyond.com"}/signup`;
+export const authUrl = `${process.env.NEXT_PUBLIC_CLIENT_URL || "https://app.searchcraftdigital.com"}/signup`;
 export const groups = {
   Platform: [
     ["Overview", "/platform"],
@@ -37,7 +37,7 @@ export const groups = {
 };
 export function Brand() {
   return (
-    <Link href="/" className="brand" aria-label="Box and Beyond home">
+    <Link href="/" className="brand" aria-label="Searchcraft home">
       <img src="/brand-mark.png" alt="" />
       <span>
         BOX<span className="brand-amp">&</span>BEYOND
@@ -194,7 +194,7 @@ export function SiteFooter() {
         BOX <span>&amp;</span> BEYOND
       </div>
       <div className="wrap footer-bottom">
-        <span>&copy; {new Date().getFullYear()} Box & Beyond Services</span>
+        <span>&copy; {new Date().getFullYear()} Searchcraft Services</span>
         <div>
           <Link href="/privacy">Privacy policy</Link>
           <Link href="/terms">Terms of service</Link>

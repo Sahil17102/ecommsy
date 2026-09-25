@@ -47,7 +47,7 @@ const sections = [
     title: "5. Your rights",
     paras: [
       "You have the right to access, correct, or delete any personal information we hold about you. You can request an export of your data or ask us to erase your account at any time.",
-      "To exercise any of these rights, email us at privacy@boxandbeyond.in. We will respond within 7 business days.",
+      "To exercise any of these rights, email us at privacy@searchcraftdigital.com. We will respond within 7 business days.",
     ],
   },
   {
@@ -62,7 +62,7 @@ const sections = [
     id: "contact",
     title: "7. Contact us",
     paras: [
-      "For any privacy-related queries, please contact our Data Protection Officer at privacy@boxandbeyond.in.",
+      "For any privacy-related queries, please contact our Data Protection Officer at privacy@searchcraftdigital.com.",
     ],
   },
 ];
@@ -153,10 +153,10 @@ export function PrivacyPage() {
                         Search craft digital, B 20, Sector 1, Noida, UP-India-201301
                       </span>
                       <a
-                        href="mailto:privacy@boxandbeyond.in"
+                        href="mailto:privacy@searchcraftdigital.com"
                         className="text-sm text-primary font-medium underline underline-offset-2"
                       >
-                        privacy@boxandbeyond.in
+                        privacy@searchcraftdigital.com
                       </a>
                     </div>
                   )}
@@ -170,8 +170,8 @@ export function PrivacyPage() {
       {/* ━━━ CTA ━━━ */}
       <CtaBanner
         title="Questions about your data?"
-        subtitle="Email us at privacy@boxandbeyond.in — we respond within 7 business days."
-        primaryCta={{ label: "Contact Privacy Team", href: "mailto:privacy@boxandbeyond.in" }}
+        subtitle="Email us at privacy@searchcraftdigital.com — we respond within 7 business days."
+        primaryCta={{ label: "Contact Privacy Team", href: "mailto:privacy@searchcraftdigital.com" }}
         secondaryCta={{ label: "Back to Home", href: "/" }}
       />
     </>

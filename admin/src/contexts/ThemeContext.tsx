@@ -8,7 +8,7 @@ import {
 } from "react";
 import { injectThemeVars, type ThemeMode } from "@/theme";
 
-const STORAGE_KEY = "box-and-beyond-admin-theme";
+const STORAGE_KEY = "searchcraft-admin-theme";
 
 interface ThemeContextType {
   mode: ThemeMode;

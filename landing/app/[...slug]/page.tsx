@@ -169,7 +169,7 @@ export default async function Page({
   if (path === "privacy" || path === "terms")
     return (
       <article className="wrap reading">
-        <p className="eyebrow">BOX & BEYOND SERVICES</p>
+        <p className="eyebrow">SEARCHCRAFT SERVICES</p>
         <h1>{path === "privacy" ? "Privacy policy" : "Terms of service"}</h1>
         <p className="lead">
           Information about using this website and the seller platform.
@@ -231,7 +231,7 @@ export default async function Page({
       {data.image && (
         <div className="wrap wide-photo">
           <img src={data.image} alt={data.title} />
-          <span>BOX & BEYOND / MOVING MORE POSSIBILITIES</span>
+          <span>SEARCHCRAFT / MOVING MORE POSSIBILITIES</span>
         </div>
       )}
       <section className="section wrap detail-grid">

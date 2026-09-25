@@ -112,7 +112,7 @@ export default function ContactForm() {
           Open seller support <ArrowUpRight size={17} />
         </a>
         <hr />
-        <h3>New to Box & Beyond?</h3>
+        <h3>New to Searchcraft?</h3>
         <p>
           Create an account to explore shipping options and contact the support
           team.

@@ -391,7 +391,7 @@ export function renderDocsPage(spec: Json, opts: { nonce: string; specUrl: strin
   <main class="main">
     ${main.join("\n")}
     <footer class="footer">
-      <p>© ${year} Searchcraft. Questions? <a href="mailto:support@boxandbeyond.in">support@boxandbeyond.in</a></p>
+      <p>© ${year} Searchcraft. Questions? <a href="mailto:support@searchcraftdigital.com">support@searchcraftdigital.com</a></p>
     </footer>
   </main>
 </div>
@@ -530,7 +530,7 @@ td:first-child{color:var(--text);white-space:nowrap}
 const THEME_BOOT = `
 (function () {
   try {
-    var stored = localStorage.getItem('box-and-beyond-docs-theme');
+    var stored = localStorage.getItem('searchcraft-docs-theme');
     if (stored === 'light' || stored === 'dark') {
       document.documentElement.setAttribute('data-theme', stored);
     }
@@ -551,7 +551,7 @@ const SCRIPT = `
       }
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('box-and-beyond-docs-theme', next); } catch (e) {}
+      try { localStorage.setItem('searchcraft-docs-theme', next); } catch (e) {}
     });
   }
 

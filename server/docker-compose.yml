@@ -1,9 +1,9 @@
-name: box-and-beyond-services
+name: searchcraft-services
 
 services:
   backend:
-    image: box-and-beyond-services-backend
-    container_name: box-and-beyond-services-backend
+    image: searchcraft-services-backend
+    container_name: searchcraft-services-backend
     build:
       context: .
       dockerfile: Dockerfile

@@ -77,7 +77,7 @@ export const pages: Record<
   }
 > = {
   platform: {
-    tag: "THE BOX & BEYOND PLATFORM",
+    tag: "THE SEARCHCRAFT PLATFORM",
     title: "Your shipping. All together.",
     description:
       "A connected workspace for the work between order placed and happily delivered.",
@@ -211,7 +211,7 @@ export const pages: Record<
     ],
   },
   about: {
-    tag: "MEET BOX & BEYOND",
+    tag: "MEET SEARCHCRAFT",
     title: "More than moving boxes.",
     description:
       "Behind every parcel is someone building something. We want to make the shipping part simpler.",

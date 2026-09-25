@@ -449,7 +449,7 @@ function HowItWorks() {
     },
     {
       title: "Verify the signature",
-      body: "Every request carries an X-Box-And-Beyond-Signature header computed with your secret. Check it before trusting the body.",
+      body: "Every request carries an X-Searchcraft-Signature header computed with your secret. Check it before trusting the body.",
     },
     {
       title: "Expect repeats, not order",

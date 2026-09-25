@@ -14,7 +14,7 @@ const NOMINATIM_REVERSE_URL =
   import.meta.env.VITE_NOMINATIM_REVERSE_URL ??
   "https://nominatim.openstreetmap.org/reverse";
 const NOMINATIM_EMAIL =
-  import.meta.env.VITE_NOMINATIM_EMAIL ?? "support@boxandbeyond.in";
+  import.meta.env.VITE_NOMINATIM_EMAIL ?? "support@searchcraftdigital.com";
 
 // ── Types ──
 

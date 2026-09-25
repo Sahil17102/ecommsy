@@ -179,7 +179,7 @@ function iso(value: unknown): string | null {
 
 function publicTrackingUrl(awb: string | null): string | null {
   if (!awb) return null;
-  const base = (process.env.PUBLIC_SITE_URL || "https://boxandbeyond.in").replace(/\/+$/, "");
+  const base = (process.env.PUBLIC_SITE_URL || "https://searchcraftdigital.com").replace(/\/+$/, "");
   return `${base}/track?q=${encodeURIComponent(awb)}`;
 }
 
@@ -291,8 +291,8 @@ export function sampleOrderEventData(): WebhookOrderEventData {
     location: "Jaipur_Sitapura_H (Rajasthan)",
     remark: null,
     event_timestamp: "2026-08-26T09:14:32.000Z",
-    label_url: "https://cdn.boxandbeyond.in/labels/3419810012345.pdf",
-    tracking_url: "https://boxandbeyond.in/track?q=3419810012345",
+    label_url: "https://cdn.searchcraftdigital.com/labels/3419810012345.pdf",
+    tracking_url: "https://searchcraftdigital.com/track?q=3419810012345",
     ndr: null,
     cancellation: null,
     manifested_at: "2026-08-25T11:02:10.000Z",

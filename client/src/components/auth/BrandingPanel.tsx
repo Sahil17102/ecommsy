@@ -17,7 +17,7 @@ export function BrandingPanel() {
       <div className="absolute -right-28 top-20 h-72 w-72 rounded-full bg-[#8f7cff]/25 blur-3xl" />
       <div className="absolute -left-24 bottom-16 h-64 w-64 rounded-full bg-[#8F83FF]/20 blur-3xl" />
 
-      <a href={import.meta.env.VITE_MARKETING_URL || "https://boxsbeyond.com"} className="relative z-10 flex items-center gap-3 text-white no-underline">
+      <a href={import.meta.env.VITE_MARKETING_URL || "https://searchcraftdigital.com"} className="relative z-10 flex items-center gap-3 text-white no-underline">
         <img src="/brand-mark.png" alt="" className="h-12 w-12 object-contain" />
         <div>
           <strong className="block text-sm tracking-[0.18em]">SEARCHCRAFT</strong>
@@ -50,7 +50,7 @@ export function BrandingPanel() {
           <Check size={15} className="text-[#bdb4ff]" />
           Secure seller access
         </div>
-        <a href={import.meta.env.VITE_MARKETING_URL || "https://boxsbeyond.com"} className="flex items-center gap-2 text-xs font-semibold text-[#cfc9ff] no-underline">
+        <a href={import.meta.env.VITE_MARKETING_URL || "https://searchcraftdigital.com"} className="flex items-center gap-2 text-xs font-semibold text-[#cfc9ff] no-underline">
           Back to site <ArrowUpRight size={15} />
         </a>
       </div>

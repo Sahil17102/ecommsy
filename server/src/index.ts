@@ -40,10 +40,10 @@ app.use("/api/docs", docsRouter);
 const allowedOrigins = [
   process.env.CLIENT_URL,
   process.env.ADMIN_URL,
-  "https://boxandbeyond.in",
-  "https://www.boxandbeyond.in",
-  "https://app.boxandbeyond.in",
-  "https://admin.boxandbeyond.in",
+  "https://searchcraftdigital.com",
+  "https://www.searchcraftdigital.com",
+  "https://ecommsy-83qx.onrender.com",
+  "https://ecommsy-admin.onrender.com",
 ].filter(Boolean);
 
 app.use(cors({

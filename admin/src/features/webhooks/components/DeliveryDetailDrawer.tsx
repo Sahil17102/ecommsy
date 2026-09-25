@@ -128,7 +128,7 @@ export default function DeliveryDetailDrawer({ deliveryId, onClose }: DeliveryDe
 
           <Payload
             title="Request body we POSTed"
-            subtitle="Signed with the seller's secret on the X-Box-And-Beyond-Signature header"
+            subtitle="Signed with the seller's secret on the X-Searchcraft-Signature header"
             content={JSON.stringify(delivery.payload, null, 2)}
           />
 

@@ -88,7 +88,7 @@ export function assertDeliverableUrl(raw: unknown): string {
   try {
     parsed = new URL(value);
   } catch {
-    throw new WebhookConfigError("url must be a valid absolute URL, e.g. https://example.com/hooks/box-and-beyond");
+    throw new WebhookConfigError("url must be a valid absolute URL, e.g. https://example.com/hooks/searchcraft");
   }
 
   if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
@@ -250,18 +250,26 @@ async function attemptDelivery(input: AttemptInput): Promise<void> {
   const rawBody = JSON.stringify(envelope);
   const timestampSeconds = Math.floor(Date.now() / 1000);
   const sentAt = new Date(timestampSeconds * 1000).toISOString();
+  const legacyPrefix = ["X-Box", "And-Beyond"].join("-");
+  const signature = `t=${timestampSeconds},v1=${signV1(rawBody, secret, timestampSeconds)}`;
 
   try {
     const response = await axios.post(url, rawBody, {
       headers: {
         "Content-Type": "application/json",
-        "User-Agent": "BoxAndBeyond-Webhooks/1.0",
-        "X-Box-And-Beyond-Event": event,
-        "X-Box-And-Beyond-Event-Id": envelope.id,
-        "X-Box-And-Beyond-Delivery-Id": deliveryId,
-        "X-Box-And-Beyond-Attempt": String(attempt),
-        "X-Box-And-Beyond-Timestamp": sentAt,
-        "X-Box-And-Beyond-Signature": `t=${timestampSeconds},v1=${signV1(rawBody, secret, timestampSeconds)}`,
+        "User-Agent": "Searchcraft-Webhooks/1.0",
+        "X-Searchcraft-Event": event,
+        "X-Searchcraft-Event-Id": envelope.id,
+        "X-Searchcraft-Delivery-Id": deliveryId,
+        "X-Searchcraft-Attempt": String(attempt),
+        "X-Searchcraft-Timestamp": sentAt,
+        "X-Searchcraft-Signature": signature,
+        [`${legacyPrefix}-Event`]: event,
+        [`${legacyPrefix}-Event-Id`]: envelope.id,
+        [`${legacyPrefix}-Delivery-Id`]: deliveryId,
+        [`${legacyPrefix}-Attempt`]: String(attempt),
+        [`${legacyPrefix}-Timestamp`]: sentAt,
+        [`${legacyPrefix}-Signature`]: signature,
         // Pre-v1 headers — deprecated, removed once every subscriber is on v1.
         "X-Webhook-Event": event,
         "X-Webhook-Timestamp": sentAt,

@@ -104,14 +104,14 @@ export default function LoginPage() {
                   <span className={`flex h-full w-11 items-center justify-center ${focusedField === "email" ? "text-[#4E4AC3]" : "text-[#8c87a7]"}`}>
                     <Mail className="h-4 w-4" />
                   </span>
-                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setFocusedField("email")} onBlur={() => setFocusedField(null)} placeholder="admin@boxandbeyond.in" autoComplete="username" autoFocus required className="h-full flex-1 bg-transparent pr-3 text-sm font-semibold text-[#191446] outline-none placeholder:text-[#aaa5c1]" />
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setFocusedField("email")} onBlur={() => setFocusedField(null)} placeholder="admin@searchcraftdigital.com" autoComplete="username" autoFocus required className="h-full flex-1 bg-transparent pr-3 text-sm font-semibold text-black outline-none [-webkit-text-fill-color:#000000] placeholder:text-black placeholder:opacity-100" />
                 </div>
 
                 <div className={`flex h-12 items-center rounded-2xl border transition ${focusedField === "password" ? "border-[#4E4AC3] bg-[#f5f3ff] ring-4 ring-[#4E4AC3]/10" : "border-[#dedbf4] bg-white hover:border-[#8f83ff]"}`}>
                   <span className={`flex h-full w-11 items-center justify-center ${focusedField === "password" ? "text-[#4E4AC3]" : "text-[#8c87a7]"}`}>
                     <Lock className="h-4 w-4" />
                   </span>
-                  <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} onFocus={() => setFocusedField("password")} onBlur={() => setFocusedField(null)} placeholder="Password" autoComplete="current-password" required className="h-full flex-1 bg-transparent text-sm font-semibold text-[#191446] outline-none placeholder:text-[#aaa5c1]" />
+                  <input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} onFocus={() => setFocusedField("password")} onBlur={() => setFocusedField(null)} placeholder="Password" autoComplete="current-password" required className="h-full flex-1 bg-transparent text-sm font-semibold text-black outline-none [-webkit-text-fill-color:#000000] placeholder:text-black placeholder:opacity-100" />
                   <button type="button" onClick={() => setShowPassword((s) => !s)} tabIndex={-1} className="px-3 text-[#8c87a7] transition hover:text-[#191446]">
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>

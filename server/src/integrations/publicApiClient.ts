@@ -97,7 +97,7 @@ export class PublicApiClient {
   private accessToken?: string;
 
   constructor(options: PublicApiClientOptions = {}) {
-    this.baseUrl = (options.baseUrl ?? "https://boxandbeyond.in/api").replace(/\/+$/, "");
+    this.baseUrl = (options.baseUrl ?? "https://searchcraftdigital.com/api").replace(/\/+$/, "");
     this.accessToken = options.accessToken;
     this.fetchImpl = options.fetchImpl ?? fetch;
   }

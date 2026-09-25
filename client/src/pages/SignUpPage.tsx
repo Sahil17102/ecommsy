@@ -134,7 +134,7 @@ export function SignUpPage() {
         {/* Mobile logo bar */}
         <div className="lg:hidden flex items-center justify-between px-5 h-16 border-b border-border-light">
           <AppLogo size="sm" />
-          <a href={import.meta.env.VITE_MARKETING_URL || "https://boxsbeyond.com"} className="text-xs font-medium text-muted hover:text-foreground transition-colors no-underline">
+          <a href={import.meta.env.VITE_MARKETING_URL || "https://searchcraftdigital.com"} className="text-xs font-medium text-muted hover:text-foreground transition-colors no-underline">
             Back to home
           </a>
         </div>

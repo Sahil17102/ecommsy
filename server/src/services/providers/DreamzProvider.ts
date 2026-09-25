@@ -113,7 +113,7 @@ export class DreamzProvider extends BaseProvider {
       const email = String(value ?? "").trim();
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return email;
     }
-    return "support@boxandbeyondservices.in";
+    return "support@searchcraftdigital.com";
   }
 
   private async resolvePickupAddressId(

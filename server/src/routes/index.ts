@@ -39,7 +39,7 @@ import externalOrdersRouter from "./externalOrders.js";
 const router = Router();
 
 router.get("/health", (_req, res) => {
-  res.json({ ok: true, service: "box-and-beyond-api" });
+  res.json({ ok: true, service: "searchcraft-api" });
 });
 
 // Courier webhook receivers (no auth — couriers POST directly)

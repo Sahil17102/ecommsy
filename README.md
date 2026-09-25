@@ -1,19 +1,19 @@
-# Box and Beyond
+# Searchcraft
 
-Multi-courier shipping aggregator for Box and Beyond. Sellers enter shipment
+Multi-courier shipping aggregator for Searchcraft. Sellers enter shipment
 details once and get the best rates across courier partners, with B2B and B2C
 flows, COD remittance, billing, KYC, and admin tooling.
 
 > Forked from the previous `courier-aggregator` codebase. Differences:
 > - **DB:** Postgres + Drizzle ORM (originally MongoDB/Mongoose).
-> - **Theme:** Box and Beyond orange (`#EA580C`) + purple (`#7C3AED`).
+> - **Theme:** Searchcraft orange (`#EA580C`) + purple (`#7C3AED`).
 > - **Removed:** Sentry, WhatsApp/lead-magnet, manual courier &
 >   serviceability, admin RBAC (role presets, audit logs, scoped staff).
 
 ## Stack
 
 - **Server:** Node.js, Express, TypeScript, Drizzle ORM, Postgres
-- **Admin:** Vite + React 18 + Ant Design (Box and Beyond theme)
+- **Admin:** Vite + React 18 + Ant Design (Searchcraft theme)
 - **Client (seller portal + landing):** Vite + React 18 + Tailwind + Ant Design
 - **Integrations kept:** Delhivery + courier providers, Razorpay, Google OAuth, AWS S3
 
@@ -56,7 +56,7 @@ npm run dev:all      # API + client + admin
 ## Project structure
 
 ```
-box-and-beyond/
+searchcraft/
 ├── admin/      # Vite + Ant Design admin portal
 ├── client/     # Vite + React seller portal + public landing
 ├── server/     # Express API
@@ -79,10 +79,10 @@ the Tailwind config consume the tokens automatically.
 
 ## Logo
 
-Drop the official Box and Beyond logo at:
+Drop the official Searchcraft logo at:
 
-- `admin/public/box-and-beyond-logo.svg` (preferred — vector) or `.png`
-- `client/public/box-and-beyond-logo.svg` or `.png`
+- `admin/public/searchcraft-logo.svg` (preferred — vector) or `.png`
+- `client/public/searchcraft-logo.svg` or `.png`
 - `admin/public/favicon.png`, `client/public/favicon.png` (favicon.jpg
   placeholders are still in place from the fork)
 

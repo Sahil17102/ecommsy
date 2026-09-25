@@ -172,7 +172,7 @@ export default function Home() {
               <span className="status-dot" /> BUILT FOR BUSINESSES GOING PLACES
             </p>
             <h1>
-              Box & Beyond
+              Searchcraft
               <span>
                 Moving more
                 <br />
@@ -510,7 +510,7 @@ export default function Home() {
             managing the next big dispatch. Your next chapter belongs here.
           </p>
           <Link href="/about" className="text-link">
-            Get to know Box & Beyond <ArrowUpRight size={18} />
+            Get to know Searchcraft <ArrowUpRight size={18} />
           </Link>
         </div>
       </section>

@@ -16,7 +16,7 @@ import {
  * inferred from schemas — what a reader copies is what the server accepts.
  */
 
-const SITE_URL = (process.env.PUBLIC_SITE_URL || "https://boxandbeyond.in").replace(/\/+$/, "");
+const SITE_URL = (process.env.PUBLIC_SITE_URL || "https://searchcraftdigital.com").replace(/\/+$/, "");
 const API_URL = (process.env.PUBLIC_API_URL || `${SITE_URL}/api`).replace(/\/+$/, "");
 const LOCAL_API_URL = `http://localhost:${process.env.PORT ?? 3001}/api`;
 
@@ -132,7 +132,7 @@ const COURIER_EXAMPLE = {
   serviceProvider: "delhivery",
   courierType: "surface",
   businessType: ["B2C"],
-  logo: "https://cdn.boxandbeyond.in/couriers/delhivery.png",
+  logo: "https://cdn.searchcraftdigital.com/couriers/delhivery.png",
 };
 
 const AVAILABLE_COURIER_EXAMPLE = {
@@ -141,7 +141,7 @@ const AVAILABLE_COURIER_EXAMPLE = {
   serviceProviderId: "3f9a2b21-0f7e-4c1a-9d31-88ef1c0a2233",
   serviceProvider: "delhivery",
   serviceProviderDisplayName: "Delhivery-1",
-  logo: "https://cdn.boxandbeyond.in/couriers/delhivery.png",
+  logo: "https://cdn.searchcraftdigital.com/couriers/delhivery.png",
   mode: "surface",
   zone: { code: "B", name: "Within State" },
   chargeableWeight: 900,
@@ -159,7 +159,7 @@ const AVAILABLE_COURIER_EXAMPLE = {
 
 const WEBHOOK_EXAMPLE = {
   id: "9c3a5f60-1d2e-4b8a-8f77-2a4b6c8d0e12",
-  url: "https://yourbrand.in/hooks/box-and-beyond",
+  url: "https://yourbrand.in/hooks/searchcraft",
   isActive: true,
   description: "Production order feed",
   secret: "whsec_••••••••1f2a",
@@ -171,7 +171,7 @@ const DELIVERY_EXAMPLE = {
   id: "1a5f7d90-77c4-4a01-9b2e-3d1f0a7c5b44",
   webhookId: "9c3a5f60-1d2e-4b8a-8f77-2a4b6c8d0e12",
   event: "order.delivered",
-  url: "https://yourbrand.in/hooks/box-and-beyond",
+  url: "https://yourbrand.in/hooks/searchcraft",
   status: "success",
   attempts: 1,
   responseStatus: 200,
@@ -267,7 +267,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
       contact: {
         name: "Searchcraft Integrations",
         url: `${SITE_URL}`,
-        email: "support@boxandbeyond.in",
+        email: "support@searchcraftdigital.com",
       },
     },
     servers: [
@@ -531,8 +531,8 @@ export function buildOpenApiDocument(): Record<string, unknown> {
           description: [
             "Use this for ecommerce stores that should sync customer orders into the seller panel without booking a courier immediately.",
             "",
-            "Production URL: `POST https://api.boxsbeyond.com/api/external/orders/import`.",
-            "The shorter `https://api.boxsbeyond.com/external/orders/import` URL is supported only as a compatibility alias; use the `/api` URL for new integrations.",
+            "Production URL: `POST https://api.searchcraftdigital.com/api/external/orders/import`.",
+            "The shorter `https://api.searchcraftdigital.com/external/orders/import` URL is supported only as a compatibility alias; use the `/api` URL for new integrations.",
             "",
             "The order is stored as `status: \"draft\"`, no wallet debit happens, and no courier API is called.",
             "The seller later opens the draft in the panel, chooses pickup/courier, and books it through the normal flow.",
@@ -672,7 +672,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
             200: {
               description: "Manifest result.",
               content: jsonContent({
-                manifestUrl: "https://cdn.boxandbeyond.in/manifests/2026-08-26-delhivery.pdf",
+                manifestUrl: "https://cdn.searchcraftdigital.com/manifests/2026-08-26-delhivery.pdf",
                 ordersProcessed: 1,
                 errors: [],
                 warnings: [],
@@ -923,7 +923,7 @@ export function buildOpenApiDocument(): Record<string, unknown> {
           requestBody: {
             required: true,
             content: jsonContent({
-              url: "https://yourbrand.in/hooks/box-and-beyond",
+              url: "https://yourbrand.in/hooks/searchcraft",
               description: "Production order feed",
             }),
           },

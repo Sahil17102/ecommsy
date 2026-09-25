@@ -11,7 +11,7 @@
  *   DATABASE_URL           — required
  *   SEED_FACILITIES_JSON   — optional, override the default fixture path
  *   SEED_USER_EMAIL        — optional, override the owning user (default
- *                            admin@boxandbeyond.in)
+ *                            admin@searchcraftdigital.com)
  */
 
 import dotenv from "dotenv";
@@ -25,7 +25,7 @@ import logger from "../config/logger.js";
 
 dotenv.config();
 
-const DEFAULT_USER_EMAIL = "admin@boxandbeyond.in";
+const DEFAULT_USER_EMAIL = "admin@searchcraftdigital.com";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_FIXTURE_PATH = resolve(here, "data/delhiveryFacilities.json");

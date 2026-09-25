@@ -12,7 +12,7 @@ import { getAntdTheme, injectThemeVars } from "./theme";
 import "./index.css";
 
 // Read saved theme before first paint to avoid light-mode flash
-const savedTheme = localStorage.getItem("box-and-beyond-admin-theme");
+const savedTheme = localStorage.getItem("searchcraft-admin-theme");
 const initialMode = savedTheme === "dark" || savedTheme === "light"
   ? savedTheme
   : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";

@@ -4,8 +4,8 @@ import "./refresh.css";
 import { SiteHeader, SiteFooter } from "../components/SiteChrome";
 export const metadata: Metadata = {
   title: {
-    default: "Box & Beyond | Moving more possibilities",
-    template: "%s | Box & Beyond",
+    default: "Searchcraft | Moving more possibilities",
+    template: "%s | Searchcraft",
   },
   description:
     "One place to compare courier rates, manage orders and follow every delivery. Shipping for businesses moving forward.",

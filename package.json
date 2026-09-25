@@ -1,7 +1,7 @@
 {
-  "name": "box-and-beyond",
+  "name": "searchcraft",
   "private": true,
-  "description": "Box and Beyond - courier aggregator platform",
+  "description": "Searchcraft - courier aggregator platform",
   "scripts": {
     "dev:landing": "npm run dev --workspace=landing",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",

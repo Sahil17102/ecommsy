@@ -560,11 +560,11 @@ export function HomePage() {
               <p className="mt-4 text-base" style={{ color: "#3A2E26" }}>
                 Don't see yours? Email{" "}
                 <a
-                  href="mailto:cs@boxandbeyond.in"
+                  href="mailto:cs@searchcraftdigital.com"
                   className="font-bold underline decoration-2 underline-offset-4"
                   style={{ color: ORANGE }}
                 >
-                  cs@boxandbeyond.in
+                  cs@searchcraftdigital.com
                 </a>{" "}
                 — we read every one.
               </p>
