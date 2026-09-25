@@ -3,7 +3,6 @@ import { AppLayout } from "./components/common";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { OnboardingRoute } from "./components/auth/OnboardingRoute";
 import { DashboardLayout } from "./components/dashboard/DashboardLayout";
-import { HomePage } from "./pages/landing/HomePage";
 import { PlatformPage } from "./pages/landing/PlatformPage";
 import { SalesChannelsPage } from "./pages/landing/SalesChannelsPage";
 import { CourierPartnersPage } from "./pages/landing/CourierPartnersPage";
