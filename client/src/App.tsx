@@ -65,7 +65,7 @@ function App() {
 
       {/* Public marketing site */}
       <Route path="/" element={<AppLayout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<Navigate to="/signup" replace />} />
         <Route path="platform" element={<PlatformPage />} />
         <Route path="integrations/sales-channels" element={<SalesChannelsPage />} />
         <Route path="integrations/courier-partners" element={<CourierPartnersPage />} />
