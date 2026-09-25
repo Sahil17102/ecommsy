@@ -12,8 +12,13 @@ export async function connectDB(): Promise<void> {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is not defined");
 
+  const useSsl = /[?&]sslmode=require(?:&|$)/.test(url);
   const cleanUrl = url.replace(/([?&])sslmode=[^&]*/g, "$1").replace(/[?&]$/, "");
-  pool = new Pool({ connectionString: cleanUrl, max: 10, ssl: false });
+  pool = new Pool({
+    connectionString: cleanUrl,
+    max: 10,
+    ssl: useSsl ? { rejectUnauthorized: false } : false,
+  });
   await pool.query("SELECT 1");
   db = drizzle(pool, { schema });
   logger.info("Postgres connected");
