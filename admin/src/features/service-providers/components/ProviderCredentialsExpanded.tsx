@@ -65,12 +65,13 @@ export default function ProviderCredentialsExpanded({ provider }: Props) {
   }
 
   const isSameAsB2c = creds.b2b.sameAsB2c ?? provider.b2b.sameAsB2c ?? false;
+  const isB2cOnly = provider.serviceProvider === "delhivery";
 
   return (
     <div className="space-y-4">
       <LogoUploadCard provider={provider} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className={`grid grid-cols-1 gap-4 ${isB2cOnly ? "" : "lg:grid-cols-2"}`}>
         <CredentialCard
           icon={<ShieldCheck size={14} className="text-emerald-600" />}
           iconBg="bg-emerald-50"
@@ -80,23 +81,26 @@ export default function ProviderCredentialsExpanded({ provider }: Props) {
           onSave={(values) => handleSave("b2c", values)}
           saving={updateCreds.isPending}
           label="B2C"
+          allowExtraFields={!isB2cOnly}
         />
 
-        <CredentialCard
-          icon={<ShieldCheck size={14} className="text-primary" />}
-          iconBg="bg-primary-bg"
-          title="B2B (LTL) Credentials"
-          description={creds.b2b.description}
-          block={creds.b2b}
-          onSave={(values) => handleSave("b2b", values)}
-          saving={updateCreds.isPending}
-          label="B2B"
-          linkedToggle={{
-            checked: isSameAsB2c,
-            loading: updateProvider.isPending,
-            onChange: handleToggleSameAsB2c,
-          }}
-        />
+        {!isB2cOnly && (
+          <CredentialCard
+            icon={<ShieldCheck size={14} className="text-primary" />}
+            iconBg="bg-primary-bg"
+            title="B2B (LTL) Credentials"
+            description={creds.b2b.description}
+            block={creds.b2b}
+            onSave={(values) => handleSave("b2b", values)}
+            saving={updateCreds.isPending}
+            label="B2B"
+            linkedToggle={{
+              checked: isSameAsB2c,
+              loading: updateProvider.isPending,
+              onChange: handleToggleSameAsB2c,
+            }}
+          />
+        )}
       </div>
     </div>
   );
@@ -143,8 +147,8 @@ function LogoUploadCard({ provider }: { provider: ProviderListItem }) {
   };
 
   return (
-    <div className="border border-[#d9d5ff] rounded-2xl p-4 bg-gradient-to-r from-[#f6f4ff] to-white flex items-center gap-4 shadow-sm shadow-[#4E4AC3]/10">
-      <div className="w-16 h-16 rounded-2xl bg-[#ebe8ff] border border-[#d9d5ff] flex items-center justify-center overflow-hidden shrink-0">
+    <div className="border border-border-light rounded-2xl p-4 bg-background-elevated flex items-center gap-4 shadow-sm">
+      <div className="w-16 h-16 rounded-2xl bg-primary-bg border border-border flex items-center justify-center overflow-hidden shrink-0">
         {preview ? (
           <img src={preview} alt="preview" className="w-full h-full object-cover" />
         ) : currentLogo ? (
@@ -191,6 +195,7 @@ function CredentialCard({
   saving,
   label,
   linkedToggle,
+  allowExtraFields = true,
 }: {
   icon: React.ReactNode;
   iconBg: string;
@@ -200,6 +205,7 @@ function CredentialCard({
   onSave: (values: Record<string, string>) => void;
   saving: boolean;
   label: string;
+  allowExtraFields?: boolean;
   linkedToggle?: {
     checked: boolean;
     loading: boolean;
@@ -242,10 +248,10 @@ function CredentialCard({
   }
 
   return (
-    <div className="border border-[#d9d5ff] rounded-2xl p-5 bg-white shadow-sm shadow-[#4E4AC3]/10 transition hover:-translate-y-0.5 hover:border-[#8f83ff] hover:shadow-[#4E4AC3]/20">
+    <div className="border border-border-light rounded-2xl p-5 bg-background-elevated shadow-sm transition hover:-translate-y-0.5 hover:border-primary">
       {/* Header */}
-      <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-[#e6e2ff]">
-        <div className={`w-8 h-8 rounded-xl ${iconBg} flex items-center justify-center ring-1 ring-[#d9d5ff]`}>
+      <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-border-light">
+        <div className={`w-8 h-8 rounded-xl ${iconBg} flex items-center justify-center ring-1 ring-border`}>
           {icon}
         </div>
         <div>
@@ -271,7 +277,7 @@ function CredentialCard({
 
       {/* Body */}
       {isLinked ? (
-        <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-[#ebe8ff] border border-[#d9d5ff]">
+        <div className="flex items-center gap-2.5 p-3.5 rounded-xl bg-primary-bg border border-border">
           <Link2 size={15} className="text-primary shrink-0" />
           <Text className="text-sm text-primary font-medium">
             B2B is linked to B2C credentials
@@ -316,7 +322,7 @@ function CredentialCard({
             );
           })}
 
-          <AddFieldControl existingKeys={allKeys} onAdd={handleAddField} />
+          {allowExtraFields && <AddFieldControl existingKeys={allKeys} onAdd={handleAddField} />}
 
           <div className="flex justify-end mt-2">
             <Button
