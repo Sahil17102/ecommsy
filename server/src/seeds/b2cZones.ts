@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { connectDB, disconnectDB, db } from "../config/db.js";
 import { b2cZones } from "../db/schema.js";
 import logger from "../config/logger.js";
+import { pathToFileURL } from "node:url";
 
 dotenv.config();
 
@@ -14,8 +15,10 @@ const zones = [
   { name: "Special Zone", code: "SPECIAL_ZONE", description: "Origin or destination is in a special zone (e.g. remote/restricted areas)" },
 ];
 
-async function seed() {
-  await connectDB();
+export async function seedB2cZones(options: { connect?: boolean; disconnect?: boolean } = {}) {
+  const shouldConnect = options.connect ?? true;
+  const shouldDisconnect = options.disconnect ?? true;
+  if (shouldConnect) await connectDB();
   logger.info("Connected to Postgres for B2C zone seeding");
 
   for (const z of zones) {
@@ -31,10 +34,13 @@ async function seed() {
   }
 
   logger.info(`B2C zone seeding complete — ${zones.length} zones`);
-  await disconnectDB();
+  if (shouldDisconnect) await disconnectDB();
 }
 
-seed().catch((err) => {
-  logger.error("B2C zone seeding failed", err);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] ? import.meta.url === pathToFileURL(process.argv[1]).href : false;
+if (isDirectRun) {
+  seedB2cZones().catch((err) => {
+    logger.error("B2C zone seeding failed", err);
+    process.exit(1);
+  });
+}

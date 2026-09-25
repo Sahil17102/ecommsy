@@ -22,6 +22,7 @@ import "./cron/webhookRetryCron.js";
 import { recoverInterruptedExports } from "./services/exports/index.js";
 import { seedLocations } from "./seeds/locations.js";
 import { seedDelhiveryProvider } from "./seeds/delhiveryProvider.js";
+import { seedDemoPricing } from "./seeds/demoPricing.js";
 
 dotenv.config({ override: true });
 
@@ -78,6 +79,7 @@ async function start() {
   await seedPlans();
   await seedDelhiveryProvider();
   await seedLocations({ connect: false, disconnect: false });
+  await seedDemoPricing();
   startAllCrons();
   // Exports interrupted by a restart go back in the queue rather than sitting
   // in "processing" forever.

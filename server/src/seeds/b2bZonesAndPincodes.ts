@@ -21,6 +21,7 @@ import {
   couriers,
 } from "../db/schema.js";
 import logger from "../config/logger.js";
+import { pathToFileURL } from "node:url";
 
 dotenv.config();
 
@@ -189,8 +190,10 @@ const ADDITIONAL_CHARGES_EXTRAS = {
 
 // ── SEED FUNCTION ──
 
-async function seed() {
-  await connectDB();
+export async function seedB2bPricing(options: { connect?: boolean; disconnect?: boolean } = {}) {
+  const shouldConnect = options.connect ?? true;
+  const shouldDisconnect = options.disconnect ?? true;
+  if (shouldConnect) await connectDB();
   logger.info("Connected to Postgres for B2B seeding");
 
   // ── Step 1: Seed zones ──
@@ -222,7 +225,7 @@ async function seed() {
   if (b2bCouriers.length === 0) {
     logger.warn("No B2B couriers found! Skipping pincode/rate/charge seeding.");
     logger.warn("Make sure you have couriers with businessType containing 'b2b' enabled.");
-    await disconnectDB();
+    if (shouldDisconnect) await disconnectDB();
     return;
   }
 
@@ -371,10 +374,13 @@ async function seed() {
   void and;
   void eq;
 
-  await disconnectDB();
+  if (shouldDisconnect) await disconnectDB();
 }
 
-seed().catch((err) => {
-  logger.error("B2B seeding failed", err);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] ? import.meta.url === pathToFileURL(process.argv[1]).href : false;
+if (isDirectRun) {
+  seedB2bPricing().catch((err) => {
+    logger.error("B2B seeding failed", err);
+    process.exit(1);
+  });
+}
