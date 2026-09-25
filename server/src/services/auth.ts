@@ -183,10 +183,17 @@ export async function sendOtp(
   await sendOtpEmail(normalizedEmail, code);
 
   logger.info(`[Auth] OTP sent successfully to email=${normalizedEmail} isNewUser=${!existingUser}`);
+  const devOtpEmails = (process.env.DEV_OTP_EMAIL_ALLOWLIST ?? "")
+    .split(",")
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean);
+  const exposeDevOtp =
+    process.env.NODE_ENV === "development" || devOtpEmails.includes(normalizedEmail);
+
   return {
     message: "OTP sent to your email",
     isNewUser: !existingUser,
-    ...(process.env.NODE_ENV === "development" ? { devOtp: code } : {}),
+    ...(exposeDevOtp ? { devOtp: code } : {}),
   };
 }
 
