@@ -16,6 +16,7 @@
     "seed:providers": "tsx src/seeds/serviceProviders.ts",
     "seed:dreamz-couriers": "tsx src/seeds/importDreamzCouriers.ts",
     "seed:seller-account": "tsx src/scripts/upsertSellerAccount.ts",
+    "user:verify-kyc": "tsx src/scripts/markKycVerified.ts",
     "seed:locations": "tsx src/seeds/locations.ts",
     "seed:zones": "tsx src/seeds/b2cZones.ts",
     "seed:couriers": "tsx src/seeds/couriers.ts",

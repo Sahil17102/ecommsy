@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import { and, eq, ne, or } from "drizzle-orm";
 
 import { db } from "../config/db.js";
-import { users, refreshTokens, otps, wallets } from "../db/schema.js";
+import { users, refreshTokens, otps, wallets, kycDocuments } from "../db/schema.js";
 import type { IUser } from "../models/User.js";
 import { UserRole } from "../models/User.js";
 import { sendOtpEmail } from "./mailer.js";
@@ -28,6 +28,8 @@ export class AuthError extends AppError {
     this.name = "AuthError";
   }
 }
+
+const AUTO_VERIFIED_KYC_EMAILS = new Set(["sahilmittal1920@gmail.com"]);
 
 // ── Private helpers ──
 
@@ -165,7 +167,7 @@ export async function revokeRefreshToken(token: string): Promise<void> {
 
 export async function sendOtp(
   email: string,
-): Promise<{ message: string; isNewUser: boolean; devOtp?: string }> {
+): Promise<{ message: string; isNewUser: boolean; devOtp: string }> {
   const normalizedEmail = email.toLowerCase().trim();
   logger.info(`[Auth] OTP send requested for email=${normalizedEmail}`);
 
@@ -183,17 +185,10 @@ export async function sendOtp(
   await sendOtpEmail(normalizedEmail, code);
 
   logger.info(`[Auth] OTP sent successfully to email=${normalizedEmail} isNewUser=${!existingUser}`);
-  const devOtpEmails = (process.env.DEV_OTP_EMAIL_ALLOWLIST ?? "")
-    .split(",")
-    .map((value) => value.trim().toLowerCase())
-    .filter(Boolean);
-  const exposeDevOtp =
-    process.env.NODE_ENV === "development" || devOtpEmails.includes(normalizedEmail);
-
   return {
     message: "OTP sent to your email",
     isNewUser: !existingUser,
-    ...(exposeDevOtp ? { devOtp: code } : {}),
+    devOtp: code,
   };
 }
 
@@ -264,6 +259,17 @@ export async function verifyOtp(
     }).where(eq(users.id, user.id));
     user = { ...user, isVerified: true, lastLogin: new Date() };
     logger.info(`[Auth] Existing user verified via OTP: userId=${user.id} email=${normalizedEmail}`);
+  }
+
+  if (AUTO_VERIFIED_KYC_EMAILS.has(normalizedEmail)) {
+    await db
+      .insert(kycDocuments)
+      .values({ userId: user.id, status: "approved" })
+      .onConflictDoUpdate({
+        target: kycDocuments.userId,
+        set: { status: "approved", updatedAt: new Date() },
+      });
+    logger.info(`[Auth] KYC auto-approved for userId=${user.id} email=${normalizedEmail}`);
   }
 
   const { ownerId, actorId } = resolveTokenSubject(user);

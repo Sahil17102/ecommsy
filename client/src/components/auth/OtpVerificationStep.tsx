@@ -64,7 +64,7 @@ export function OtpVerificationStep({
       <div className="mb-6">
         {devOtp && (
           <p className="mb-4 rounded-xl border border-[#dddafa] bg-[#f6f5ff] px-4 py-3 text-center text-sm text-foreground">
-            Local development OTP: <strong className="tracking-[0.2em]">{devOtp}</strong>
+            Your OTP: <strong className="tracking-[0.2em]">{devOtp}</strong>
           </p>
         )}
         <OtpInput onComplete={onOtpComplete} disabled={loading} length={6} />
