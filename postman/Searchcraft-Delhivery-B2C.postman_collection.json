@@ -1,0 +1,49 @@
+{
+  "info": {
+    "name": "Searchcraft - Delhivery B2C",
+    "description": "Full Delhivery B2C integration. Set baseUrl, adminToken and providerId. Mutating requests require explicit sample data and should be run against staging first.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{adminToken}}", "type": "string" }] },
+  "event": [{
+    "listen": "test",
+    "script": { "type": "text/javascript", "exec": [
+      "pm.test('Response is JSON', () => pm.response.to.be.json);",
+      "pm.test('No server error', () => pm.expect(pm.response.code).to.be.below(500));"
+    ] }
+  }],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3001/api" },
+    { "key": "adminToken", "value": "" },
+    { "key": "providerId", "value": "00000000-0000-4000-8000-000000000000" },
+    { "key": "waybill", "value": "" },
+    { "key": "orderId", "value": "POSTMAN-{{$timestamp}}" },
+    { "key": "warehouseName", "value": "Postman Test Warehouse" },
+    { "key": "ndrRequestId", "value": "" }
+  ],
+  "item": [
+    { "name": "Read-only APIs", "item": [
+      { "name": "Pincode serviceability", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/serviceability?pincode=110042" } },
+      { "name": "Heavy serviceability", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/heavy-serviceability?pincode=400086" } },
+      { "name": "Expected TAT", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/tat?origin_pin=122003&destination_pin=136118&mot=S&pdt=B2C" } },
+      { "name": "Fetch single waybill", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/waybill" } },
+      { "name": "Fetch bulk waybills", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/waybills?count=5" } },
+      { "name": "Track shipment", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/tracking?waybill={{waybill}}" } },
+      { "name": "Calculate shipping cost", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/rates?md=S&ss=Delivered&pt=Pre-paid&o_pin=110042&d_pin=110053&cgm=500&l=10&b=10&h=10" } },
+      { "name": "Generate label", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/label?waybill={{waybill}}&pdf=true&pdf_size=4R" } },
+      { "name": "Download document", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/document?waybill={{waybill}}&doc_type=EPOD" } },
+      { "name": "Get NDR status", "request": { "method": "GET", "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/ndr-status?request_id={{ndrRequestId}}&verbose=true" } }
+    ] },
+    { "name": "Mutating APIs - staging only", "item": [
+      { "name": "Create shipment (also supports RVP QC)", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"shipments\": [{\n    \"name\": \"Postman Customer\", \"order\": \"{{orderId}}\", \"phone\": \"9999999999\",\n    \"add\": \"Test address\", \"pin\": \"110042\", \"city\": \"Delhi\", \"state\": \"Delhi\",\n    \"country\": \"India\", \"payment_mode\": \"Prepaid\", \"weight\": 500,\n    \"shipment_length\": 10, \"shipment_width\": 10, \"shipment_height\": 10\n  }],\n  \"pickup_location\": { \"name\": \"{{warehouseName}}\" }\n}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/shipments" } },
+      { "name": "Create MPS shipment", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"shipments\":[{\"order\":\"{{orderId}}\",\"waybill\":\"{{waybill}}\",\"master_id\":\"{{waybill}}\",\"shipment_type\":\"MPS\",\"mps_children\":1,\"mps_amount\":0,\"name\":\"Customer\",\"phone\":\"9999999999\",\"add\":\"Test address\",\"pin\":\"110042\",\"payment_mode\":\"Prepaid\"}],\"pickup_location\":{\"name\":\"{{warehouseName}}\"}}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/shipments" } },
+      { "name": "Edit shipment", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"waybill\":\"{{waybill}}\",\"name\":\"Updated Customer\",\"gm\":500}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/edit-shipment" } },
+      { "name": "Cancel shipment", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"waybill\":\"{{waybill}}\"}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/cancel-shipment" } },
+      { "name": "Update e-waybill", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"waybill\":\"{{waybill}}\",\"data\":[{\"dcn\":\"INV-001\",\"ewbn\":\"EWB-001\"}]}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/ewaybill" } },
+      { "name": "Create pickup request", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"pickup_time\":\"11:00:00\",\"pickup_date\":\"2026-09-26\",\"pickup_location\":\"{{warehouseName}}\",\"expected_package_count\":1}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/pickup" } },
+      { "name": "Create warehouse", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\":\"{{warehouseName}}\",\"phone\":\"9999999999\",\"pin\":\"110042\",\"address\":\"Test address\",\"city\":\"Delhi\",\"country\":\"India\",\"return_address\":\"Test address\",\"return_pin\":\"110042\",\"return_city\":\"Delhi\",\"return_state\":\"Delhi\",\"return_country\":\"India\"}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/warehouses" } },
+      { "name": "Update warehouse", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\":\"{{warehouseName}}\",\"phone\":\"9999999999\",\"address\":\"Updated test address\",\"pin\":\"110042\"}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/warehouses" } },
+      { "name": "Submit NDR action", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"waybill\":\"{{waybill}}\",\"act\":\"RE-ATTEMPT\"}" }, "url": "{{baseUrl}}/admin/service-providers/{{providerId}}/delhivery-b2c/ndr" } }
+    ] }
+  ]
+}

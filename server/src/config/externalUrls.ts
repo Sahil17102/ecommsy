@@ -73,6 +73,15 @@ export const externalUrls = {
       process.env.DELHIVERY_HEAVY_SERVICEABILITY_URL ||
       `${delhiveryBase}/api/dc/fetch/serviceability/pincode`,
 
+    expectedTat: process.env.DELHIVERY_TAT_URL || `${delhiveryBase}/api/dc/expected_tat`,
+    bulkWaybill: process.env.DELHIVERY_BULK_WAYBILL_URL || `${delhiveryBase}/waybill/api/bulk/json/`,
+    singleWaybill: process.env.DELHIVERY_SINGLE_WAYBILL_URL || `${delhiveryBase}/waybill/api/fetch/json/`,
+    rates: process.env.DELHIVERY_RATE_URL || `${delhiveryBase}/api/kinko/v1/invoice/charges/.json`,
+    label: process.env.DELHIVERY_LABEL_URL || `${delhiveryBase}/api/p/packing_slip`,
+    ewaybill: process.env.DELHIVERY_EWAYBILL_URL || `${delhiveryBase}/api/rest/ewaybill`,
+    document: process.env.DELHIVERY_DOCUMENT_URL || `${delhiveryBase}/api/rest/fetch/pkg/document/`,
+    ndrStatus: process.env.DELHIVERY_NDR_STATUS_URL || `${delhiveryBase}/api/cmu/get_bulk_upl`,
+
     /** Create order / shipment endpoint */
     createOrder:
       process.env.DELHIVERY_CREATE_ORDER_URL ||
@@ -87,6 +96,10 @@ export const externalUrls = {
     listWarehouses:
       process.env.DELHIVERY_LIST_WAREHOUSES_URL ||
       `${delhiveryBase}/api/backend/clientwarehouse/`,
+
+    editWarehouse:
+      process.env.DELHIVERY_EDIT_WAREHOUSE_URL ||
+      `${delhiveryBase}/api/backend/clientwarehouse/edit/`,
 
     /** Tracking API (GET ?waybill=xxx) */
     tracking:

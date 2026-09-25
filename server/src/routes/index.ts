@@ -35,6 +35,7 @@ import adminNotificationsRouter from "./adminNotifications.js";
 import adminWebhooksRouter from "./adminWebhooks.js";
 import { publicTrackingRouter } from "./publicTracking.js";
 import externalOrdersRouter from "./externalOrders.js";
+import delhiveryB2cRouter from "./delhiveryB2c.js";
 
 const router = Router();
 
@@ -76,6 +77,7 @@ router.use("/support-tickets", sellerSupportRouter);
 // Admin routes
 router.use("/admin/auth", adminAuthRouter);
 router.use("/admin/dashboard", adminDashboardRouter);
+router.use("/admin/service-providers/:providerId/delhivery-b2c", delhiveryB2cRouter);
 router.use("/admin/service-providers", serviceProvidersRouter);
 router.use("/admin/couriers", couriersRouter);
 router.use("/admin/users", usersRouter);
