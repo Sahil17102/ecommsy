@@ -12,8 +12,8 @@ export function useSession() {
   return useQuery<User | null>({
     queryKey: SESSION_QUERY_KEY,
     queryFn: authApi.getSession,
-    retry: 2,               // retry a couple times before giving up (handles transient failures)
-    retryDelay: 1000,       // 1s between retries
+    retry: 1,               // one quick retry handles a transient network hiccup
+    retryDelay: 500,
     staleTime: STALE_TIME_5M,
     refetchOnWindowFocus: true, // re-check session when admin returns to tab
   });

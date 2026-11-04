@@ -1,6 +1,9 @@
 import { api, setAccessToken, getAccessToken } from "@/lib/api";
 import type { User } from "./types";
 
+const SESSION_REQUEST_TIMEOUT = 8_000;
+const LOGIN_REQUEST_TIMEOUT = 20_000;
+
 export const authApi = {
   // ── Session (called on mount to restore auth via silent refresh) ──
 
@@ -10,11 +13,15 @@ export const authApi = {
       // Proactively call /refresh to restore it before hitting /me,
       // avoiding a wasted 401 → refresh → retry cycle.
       if (!getAccessToken()) {
-        const { data } = await api.post<{ accessToken: string }>("/auth/refresh");
+        const { data } = await api.post<{ accessToken: string }>(
+          "/auth/refresh",
+          undefined,
+          { timeout: SESSION_REQUEST_TIMEOUT },
+        );
         setAccessToken(data.accessToken);
       }
 
-      const { data } = await api.get("/auth/me");
+      const { data } = await api.get("/auth/me", { timeout: SESSION_REQUEST_TIMEOUT });
       return data.user as User;
     } catch (err) {
       // 401 = genuinely unauthenticated (expired/invalid token) → return null (no retry needed)
@@ -31,7 +38,9 @@ export const authApi = {
     email: string;
     password: string;
   }): Promise<{ user: User }> => {
-    const { data } = await api.post("/auth/login", params);
+    const { data } = await api.post("/auth/login", params, {
+      timeout: LOGIN_REQUEST_TIMEOUT,
+    });
     setAccessToken(data.accessToken);
     return { user: data.user as User };
   },

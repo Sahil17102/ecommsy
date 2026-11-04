@@ -1,38 +1,45 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import AdminLayout from "@/components/layout/AdminLayout";
 import { ProtectedRoute, SuperadminRoute } from "@/components/auth/ProtectedRoute";
 import LoginPage from "@/features/auth/LoginPage";
-import DashboardPage from "@/features/dashboard";
-import ComingSoon from "@/components/common/ComingSoon";
-import OrdersPage from "@/features/orders";
-import OrderDetailPage from "@/features/orders/components/OrderDetailPage";
-import ServiceProvidersPage from "@/features/service-providers";
-import CouriersPage from "@/features/couriers";
-import UsersPage from "@/features/users";
-import UserDetailPage from "@/features/users/components/UserDetailPage";
-import ServiceabilityPage from "@/features/serviceability";
-import B2cPricingPage from "@/features/b2c-pricing";
-import B2bPricingPage from "@/features/b2b-pricing";
-import PlansPage from "@/features/plans";
-import WalletsPage from "@/features/wallets";
-import NdrPage from "@/features/ndr";
-import RtoPage from "@/features/rto";
-import CodRemittancePage from "@/features/cod-remittance";
-import BillingInvoicesPage from "@/features/billing-invoices";
-import RateCalculatorPage from "@/features/rate-calculator";
-import OrderTrackingPage from "@/features/order-tracking";
-import ReportsPage from "@/features/reports";
-import { BlogsListPage, BlogEditorPage } from "@/features/blogs";
-import SupportTicketsPage from "@/features/support-tickets";
-import SupportTicketDetailPage from "@/features/support-tickets/components/SupportTicketDetailPage";
-import NotificationSettingsPage from "@/features/notification-settings";
-import NotificationsInboxPage from "@/features/notifications";
-import AccountSettingsPage from "@/features/account";
-import WebhooksPage from "@/features/webhooks";
+import FullPageLoader from "@/components/common/FullPageLoader";
+
+// Keep the login screen in the entry bundle, but load the much larger admin
+// screens only after authentication and only when their route is visited.
+const AdminLayout = lazy(() => import("@/components/layout/AdminLayout"));
+const DashboardPage = lazy(() => import("@/features/dashboard"));
+const ComingSoon = lazy(() => import("@/components/common/ComingSoon"));
+const OrdersPage = lazy(() => import("@/features/orders"));
+const OrderDetailPage = lazy(() => import("@/features/orders/components/OrderDetailPage"));
+const ServiceProvidersPage = lazy(() => import("@/features/service-providers"));
+const CouriersPage = lazy(() => import("@/features/couriers"));
+const UsersPage = lazy(() => import("@/features/users"));
+const UserDetailPage = lazy(() => import("@/features/users/components/UserDetailPage"));
+const ServiceabilityPage = lazy(() => import("@/features/serviceability"));
+const B2cPricingPage = lazy(() => import("@/features/b2c-pricing"));
+const B2bPricingPage = lazy(() => import("@/features/b2b-pricing"));
+const PlansPage = lazy(() => import("@/features/plans"));
+const WalletsPage = lazy(() => import("@/features/wallets"));
+const NdrPage = lazy(() => import("@/features/ndr"));
+const RtoPage = lazy(() => import("@/features/rto"));
+const CodRemittancePage = lazy(() => import("@/features/cod-remittance"));
+const BillingInvoicesPage = lazy(() => import("@/features/billing-invoices"));
+const RateCalculatorPage = lazy(() => import("@/features/rate-calculator"));
+const OrderTrackingPage = lazy(() => import("@/features/order-tracking"));
+const ReportsPage = lazy(() => import("@/features/reports"));
+const BlogsListPage = lazy(() => import("@/features/blogs").then((module) => ({ default: module.BlogsListPage })));
+const BlogEditorPage = lazy(() => import("@/features/blogs").then((module) => ({ default: module.BlogEditorPage })));
+const SupportTicketsPage = lazy(() => import("@/features/support-tickets"));
+const SupportTicketDetailPage = lazy(() => import("@/features/support-tickets/components/SupportTicketDetailPage"));
+const NotificationSettingsPage = lazy(() => import("@/features/notification-settings"));
+const NotificationsInboxPage = lazy(() => import("@/features/notifications"));
+const AccountSettingsPage = lazy(() => import("@/features/account"));
+const WebhooksPage = lazy(() => import("@/features/webhooks"));
 
 export default function App() {
   return (
-    <Routes>
+    <Suspense fallback={<FullPageLoader />}>
+      <Routes>
       {/* Auth */}
       <Route path="/login" element={<LoginPage />} />
 
@@ -91,6 +98,7 @@ export default function App() {
         <Route path="notifications" element={<NotificationsInboxPage />} />
         <Route path="notifications/settings" element={<NotificationSettingsPage />} />
       </Route>
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 }
